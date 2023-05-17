@@ -17,21 +17,21 @@ public class Partner_Edit extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_partner_add);
 		
-		/* receives the id from the view activity */
+	/* receives the id from the view activity */
         if(savedInstanceState == null){
             Bundle extras = getIntent().getExtras();
             if(extras == null)
             {
-                book_id = Integer.parseInt(null);
+                partner_id = Integer.parseInt(null);
             }
             else
             {
-                book_id = extras.getInt("ID");
+                partner_id = extras.getInt("ID");
             }
         }
         else
         {
-            book_id = (int) savedInstanceState.getSerializable("ID");
+            partner_id = (int) savedInstanceState.getSerializable("ID");
         }
 
 		
