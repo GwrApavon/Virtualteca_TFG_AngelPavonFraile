@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Virtualteca_TFG_AngelPavonFraile</string>
+    <string name="Nothing">" "</string>
+    <string name="create_db">CREAR BASE DE DATOS</string>
+    <string name="delete_db">BORRAR BASE DE DATOS</string>
+    <string name="add">AÑADIR\n</string>
+    <string name="Save">GUARDAR</string>
+    <string name="Title">Titulo</string>
+    <string name="Author">Autor</string>
+    <string name="ISBN">ISBN</string>
+    <string name="Genre">Genero</string>
+    <string name="editorial">Editorial</string>
+    <string name="Language">Idioma</string>
+    <string name="Synopsis">Sinopsis</string>
+    <string name="Name">Nombre</string>
+    <string name="First_Surname">Primer Apellido</string>
+    <string name="Second_Surname">Segundo Apellido</string>
+    <string name="DNI">Dni</string>
+    <string name="Phone_Number">Telefono</string>
+    <string name="Email">Correo Electronico</string>
+    <string name="logo">Logo</string>
+    <string name="SaveChanges">GUARDAR CAMBIOS</string>
+    <string name="clean_db">LIMPIAR BASE DE DATOS</string>
+    <string name="Pbl_date">Fecha de Publicación</string>
+</resources>

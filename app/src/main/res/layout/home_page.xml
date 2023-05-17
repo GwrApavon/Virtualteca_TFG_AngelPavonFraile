@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/moving_buttons"
+        android:layout_width="340dp"
+        android:layout_height="62dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="673dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <Button
+            android:id="@+id/home_button"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="20dp"
+            android:layout_weight="1"
+            android:contentDescription="@string/Nothing"
+            app:icon="@drawable/house_solid"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <Button
+            android:id="@+id/book_button"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="0dp"
+            android:layout_height="62dp"
+            android:layout_marginEnd="20dp"
+            android:layout_weight="1"
+            android:contentDescription="@string/Nothing"
+            app:icon="@drawable/book_solid"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <Button
+            android:id="@+id/partner_button"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="0dp"
+            android:layout_height="62dp"
+            android:layout_marginEnd="20dp"
+            android:layout_weight="1"
+            android:contentDescription="@string/Nothing"
+            app:icon="@drawable/person_solid"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <Button
+            android:id="@+id/loan_button"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="0dp"
+            android:layout_height="62dp"
+            android:layout_marginEnd="20dp"
+            android:layout_weight="1"
+            android:contentDescription="@string/Nothing"
+            app:icon="@drawable/book_open_reader_solid"
+            tools:ignore="TouchTargetSizeCheck" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/create_db"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="328dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:text="@string/create_db"
+        app:cornerRadius="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.566"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/moving_buttons"
+        app:layout_constraintVertical_bias="0.793"
+        app:strokeColor="@color/black"
+        tools:ignore="VisualLintButtonSize" />
+
+    <Button
+        android:id="@+id/delete_db"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="328dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:text="@string/clean_db"
+        app:cornerRadius="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.566"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/moving_buttons"
+        app:layout_constraintVertical_bias="0.894"
+        app:strokeColor="@color/black"
+        tools:ignore="VisualLintButtonSize" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="364dp"
+        android:layout_height="378dp"
+        android:layout_marginStart="23dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="44dp"
+
+        app:layout_constraintBottom_toTopOf="@+id/create_db"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/moving_buttons"
+        app:srcCompat="@drawable/logo_virtualteca"
+        tools:ignore="ContentDescription,ImageContrastCheck"
+        android:contentDescription="@string/logo" />
+</androidx.constraintlayout.widget.ConstraintLayout>
