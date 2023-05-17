@@ -40,18 +40,34 @@ public class LoanAdapter extends BaseAdapter {
 
         LayoutInflater shown = LayoutInflater.from(context);
         View element = shown.inflate(R.layout.loan, viewGroup, false);
+        DataBaseBook dbb = new DataBaseBook(LoanAdapter.this);
+        DataBasePartner dbp = new DataBasePartner(LoanAdapter.this);
+        
+        Book book = dbb.getBookById(loans.get(i).getBook_id());
+        Partner partner = dbp.getPartnerById(loans.get(i).getPartner_id());
  /*
-        //Arreglar para que lo saque de la base de datos
-        TextView partner = element.findViewById(R.id.partner);
-        int partner_id = Integer.parseInt(String.valueOf(loans.get(i).getId_partner()));
-        String partner_full_name = partner_id.get(i).getName() + partner_id.get(i).getSurname1() + partner_id.get(i).getSurname2();
-        partner.setText(partner_full_name);
-       
-        //Lo mismo 
-        TextView id_book = element.findViewById(R.id.id_book);
-        int partner_id = Integer.parseInt(String.valueOf(loans.get(i).getId_partner()));
-        id_book.setText();
+        //PARTNER
+        TextView full_name_tv = element.findViewById(R.id.full_name);
+        full_name = partner.getName() + partner.getSurname1() + partner.getSurname2() ;
+        full_name_tv.setText(full_name);
+        
+        TextView phn = element.findViewById(R.id.phone_number);
+        phn.setText(partner.getPhone_number());
 
+        TextView email = element.findViewById(R.id.email);
+        email.setText(partner.getEmail());
+       
+        //BOOK
+        TextView title = element.findViewById(R.id.book_title);
+        title.setText(book.getTitle());
+
+        TextView author = element.findViewById(R.id.book_author);
+        author.setText(book.getAuthor());
+
+        TextView editorial = element.findViewById(R.id.book_editorial);a
+        editorial.setText(book.getEditorial());
+        
+        //LOAN
         TextView fin_date = element.findViewById(R.id.fin_date);
         fin_date.setText(loans.get(i).getFin_date());
 
