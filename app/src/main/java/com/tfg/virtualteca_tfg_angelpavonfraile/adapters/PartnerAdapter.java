@@ -46,8 +46,8 @@ public class PartnerAdapter extends BaseAdapter {
         full_name = partners.get(i).getName() + partners.get(i).getSurname1() + partners.get(i).getSurname2() ;
         full_name_tv.setText(full_name);
         
-        TextView dni = element.findViewById(R.id.dni);
-        dni.setText(partners.get(i).getDni());
+        TextView phn = element.findViewById(R.id.phone_number);
+        phn.setText(partners.get(i).getPhone_number());
 
         TextView email = element.findViewById(R.id.email);
         email.setText(partners.get(i).getEmail());
