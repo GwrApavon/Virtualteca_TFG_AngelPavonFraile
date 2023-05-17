@@ -35,12 +35,12 @@ public class Partner_Edit extends AppCompatActivity {
         }
 
 		
-		dni_text = findViewById(R.id.dniText);
-        name_text = findViewById(R.id.nameText);
-        surname1_text = findViewById(R.id.surname1Text);
-        surname2_text = findViewById(R.id.surname2Text);
-        phone_number_text = findViewById(R.id.phoneNumberText);
-        email_text = findViewById(R.id.emailText);
+	dni_text = findViewById(R.id.dniTextEdit);
+        name_text = findViewById(R.id.nameTextEdit);
+        surname1_text = findViewById(R.id.surname1TextEdit);
+        surname2_text = findViewById(R.id.surname2TextEdit);
+        phone_number_text = findViewById(R.id.phoneNumberTextEdit);
+        email_text = findViewById(R.id.emailTextEdit);
 		
 		/* SAVE CHANGES DB */
         Button b_save = findViewById(R.id.saveButton);
