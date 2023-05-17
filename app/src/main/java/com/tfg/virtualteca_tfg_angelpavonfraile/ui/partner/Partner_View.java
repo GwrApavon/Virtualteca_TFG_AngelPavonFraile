@@ -16,6 +16,8 @@ import com.tfg.virtualteca_tfg_angelpavonfraile.ui.book.Book_Edit;
 import com.tfg.virtualteca_tfg_angelpavonfraile.ui.book.Book_View;
 
 public class Partner_View extends AppCompatActivity {
+	
+	TextView dni_text, name_text, surname1_text, surname2_text, phone_number_text, email_text;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,4 +80,34 @@ public class Partner_View extends AppCompatActivity {
             }
         });
     }
+	
+	public void fillTextView(int partner_id){
+        Partner partner;
+		String dni, name, surname1, surname2, phone_number, email;
+		
+		DataBasePartner dbp = new DataBasePartner(Partner_View.this);
+		 
+		dni_text = findViewById(R.id.dniTextView);
+        name_text = findViewById(R.id.nameTextView);
+        surname1_text = findViewById(R.id.surname1TextView);
+        surname2_text = findViewById(R.id.surname2TextView);
+        phone_number_text = findViewById(R.id.phoneNumberTextView);
+        email_text = findViewById(R.id.emailTextView);
+		
+		partner = dbb.getBookById(book_id);
+
+        if (partner != null) {
+            dni = partner.getDni();
+            dni_text.setText(dni);
+            name = partner.getName();
+            name_text.setText(name);
+            surname1 = partner.getSurname1();
+            surname1_text.setText(surname1);
+            surname2 = partner.getSurname2();
+            surname2_text.setText(surname2);
+            phone_number = partner.getPhone_number();
+            phone_number_text.setText(phone_number);
+            email = partner.getEmail();
+            email_text.setText(email);
+        }
 }
