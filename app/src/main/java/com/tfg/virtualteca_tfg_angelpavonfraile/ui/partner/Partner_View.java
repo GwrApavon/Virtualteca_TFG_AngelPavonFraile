@@ -8,10 +8,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.tfg.virtualteca_tfg_angelpavonfraile.DBSettings.DataBaseBook;
 import com.tfg.virtualteca_tfg_angelpavonfraile.DBSettings.DataBasePartner;
 import com.tfg.virtualteca_tfg_angelpavonfraile.R;
+import com.tfg.virtualteca_tfg_angelpavonfraile.elements.Partner;
 import com.tfg.virtualteca_tfg_angelpavonfraile.ui.book.Book_Edit;
 import com.tfg.virtualteca_tfg_angelpavonfraile.ui.book.Book_View;
 
@@ -81,20 +83,20 @@ public class Partner_View extends AppCompatActivity {
         });
     }
 	
-	public void fillTextView(int partner_id){
+	public void fillTextView(int partner_id) {
         Partner partner;
-		String dni, name, surname1, surname2, phone_number, email;
-		
-		DataBasePartner dbp = new DataBasePartner(Partner_View.this);
-		 
-		dni_text = findViewById(R.id.dniTextView);
+        String dni, name, surname1, surname2, phone_number, email;
+
+        DataBasePartner dbp = new DataBasePartner(Partner_View.this);
+
+        dni_text = findViewById(R.id.dniTextView);
         name_text = findViewById(R.id.nameTextView);
         surname1_text = findViewById(R.id.surname1TextView);
         surname2_text = findViewById(R.id.surname2TextView);
-        phone_number_text = findViewById(R.id.phoneNumberTextView);
+        phone_number_text = findViewById(R.id.phoneNumTextView);
         email_text = findViewById(R.id.emailTextView);
-		
-		partner = dbb.getBookById(book_id);
+
+        partner = dbp.getPartnerById(partner_id);
 
         if (partner != null) {
             dni = partner.getDni();
@@ -110,4 +112,5 @@ public class Partner_View extends AppCompatActivity {
             email = partner.getEmail();
             email_text.setText(email);
         }
+    }
 }

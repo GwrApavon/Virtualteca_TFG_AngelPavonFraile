@@ -24,7 +24,7 @@
         app:strokeColor="@color/black" />
 
     <EditText
-        android:id="@+id/nameText"
+        android:id="@+id/nameTextEdit"
         android:layout_width="366dp"
         android:layout_height="50dp"
         android:layout_marginStart="22dp"
@@ -35,13 +35,13 @@
         android:ems="10"
         android:hint="@string/Name"
         android:inputType="text"
-        app:layout_constraintBottom_toTopOf="@+id/Surname1Text"
+        app:layout_constraintBottom_toTopOf="@+id/surname1TextEdit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/Surname1Text"
+        android:id="@+id/surname1TextEdit"
         android:layout_width="366dp"
         android:layout_height="50dp"
         android:layout_marginStart="22dp"
@@ -52,14 +52,14 @@
         android:ems="10"
         android:hint="@string/First_Surname"
         android:inputType="text"
-        app:layout_constraintBottom_toTopOf="@+id/Surname2Text"
+        app:layout_constraintBottom_toTopOf="@+id/surname2TextEdit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nameText"
+        app:layout_constraintTop_toBottomOf="@+id/nameTextEdit"
         tools:ignore="TextContrastCheck" />
 
     <EditText
-        android:id="@+id/Surname2Text"
+        android:id="@+id/surname2TextEdit"
         android:layout_width="366dp"
         android:layout_height="50dp"
         android:layout_marginStart="22dp"
@@ -70,14 +70,14 @@
         android:ems="10"
         android:hint="@string/Second_Surname"
         android:inputType="text"
-        app:layout_constraintBottom_toTopOf="@+id/DNItext"
+        app:layout_constraintBottom_toTopOf="@+id/dniTextEdit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Surname1Text"
+        app:layout_constraintTop_toBottomOf="@+id/surname1TextEdit"
         tools:ignore="TextContrastCheck" />
 
     <EditText
-        android:id="@+id/DNItext"
+        android:id="@+id/dniTextEdit"
         android:layout_width="366dp"
         android:layout_height="50dp"
         android:layout_marginStart="22dp"
@@ -89,13 +89,13 @@
         android:hint="@string/DNI"
         android:inputType="text"
         android:maxLength="8"
-        app:layout_constraintBottom_toTopOf="@+id/phoneNumText"
+        app:layout_constraintBottom_toTopOf="@+id/phoneNumTextEdit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Surname2Text" />
+        app:layout_constraintTop_toBottomOf="@+id/surname2TextEdit" />
 
     <EditText
-        android:id="@+id/phoneNumText"
+        android:id="@+id/phoneNumTextEdit"
         android:layout_width="366dp"
         android:layout_height="50dp"
         android:layout_marginStart="22dp"
@@ -106,13 +106,13 @@
         android:ems="10"
         android:hint="@string/Phone_Number"
         android:inputType="phone"
-        app:layout_constraintBottom_toTopOf="@+id/emailText"
+        app:layout_constraintBottom_toTopOf="@+id/emailTextEdit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/DNItext" />
+        app:layout_constraintTop_toBottomOf="@+id/dniTextEdit" />
 
     <EditText
-        android:id="@+id/emailText"
+        android:id="@+id/emailTextEdit"
         android:layout_width="366dp"
         android:layout_height="50dp"
         android:layout_marginStart="22dp"
@@ -126,7 +126,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/phoneNumText"
+        app:layout_constraintTop_toBottomOf="@+id/phoneNumTextEdit"
         tools:ignore="TextContrastCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

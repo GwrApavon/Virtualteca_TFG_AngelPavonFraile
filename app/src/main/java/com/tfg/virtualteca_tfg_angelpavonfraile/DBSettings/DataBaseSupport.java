@@ -49,7 +49,7 @@ public class DataBaseSupport extends SQLiteOpenHelper {
                 "id_book INTEGER NOT NULL," +
                 "init_date TEXT NOT NULL," +
                 "fin_date TEXT NOT NULL," +
-                "devuelto INTEGER NOT NULL," +
+                "returned INTEGER NOT NULL," +
                 "FOREIGN KEY(id_partner) REFERENCES " + TABLE_PARTNERS + "(id_partner)," +
                 "FOREIGN KEY(id_book) REFERENCES " + TABLE_BOOKS + "(id_book))");
     }

@@ -35,13 +35,13 @@
         android:ems="10"
         android:hint="@string/Name"
         android:inputType="text"
-        app:layout_constraintBottom_toTopOf="@+id/Surname1Text"
+        app:layout_constraintBottom_toTopOf="@+id/surname1Text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/Surname1Text"
+        android:id="@+id/surname1Text"
         android:layout_width="366dp"
         android:layout_height="50dp"
         android:layout_marginStart="22dp"
@@ -52,14 +52,14 @@
         android:ems="10"
         android:hint="@string/First_Surname"
         android:inputType="text"
-        app:layout_constraintBottom_toTopOf="@+id/Surname2Text"
+        app:layout_constraintBottom_toTopOf="@+id/surname2Text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nameText"
         tools:ignore="TextContrastCheck" />
 
     <EditText
-        android:id="@+id/Surname2Text"
+        android:id="@+id/surname2Text"
         android:layout_width="366dp"
         android:layout_height="50dp"
         android:layout_marginStart="22dp"
@@ -70,14 +70,14 @@
         android:ems="10"
         android:hint="@string/Second_Surname"
         android:inputType="text"
-        app:layout_constraintBottom_toTopOf="@+id/DNItext"
+        app:layout_constraintBottom_toTopOf="@+id/dniText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Surname1Text"
+        app:layout_constraintTop_toBottomOf="@+id/surname1Text"
         tools:ignore="TextContrastCheck" />
 
     <EditText
-        android:id="@+id/DNItext"
+        android:id="@+id/dniText"
         android:layout_width="366dp"
         android:layout_height="50dp"
         android:layout_marginStart="22dp"
@@ -92,7 +92,7 @@
         app:layout_constraintBottom_toTopOf="@+id/phoneNumText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Surname2Text" />
+        app:layout_constraintTop_toBottomOf="@+id/surname2Text" />
 
     <EditText
         android:id="@+id/phoneNumText"
@@ -109,7 +109,7 @@
         app:layout_constraintBottom_toTopOf="@+id/emailText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/DNItext" />
+        app:layout_constraintTop_toBottomOf="@+id/dniText" />
 
     <EditText
         android:id="@+id/emailText"

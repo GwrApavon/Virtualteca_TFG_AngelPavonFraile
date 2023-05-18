@@ -49,7 +49,7 @@ public class DataBaseLoan extends DataBaseSupport {
         also returns true if success
              returns false if failed
      */
-    public boolean editLoan(int id, int id_partner, int id_book, String init_date, String fin_date, boolean devuelto) {
+    public boolean editLoan(int id, int id_partner, int id_book, String init_date, String fin_date, boolean returned) {
         boolean result = false;
         SQLiteDatabase db = getWritableDatabase();
         try {
@@ -58,7 +58,23 @@ public class DataBaseLoan extends DataBaseSupport {
             values.put("id_book", id_book);
             values.put("init_date", init_date);
             values.put("fin_date", fin_date);
-            values.put("devuelto", devuelto ? 1 : 0);
+            values.put("returned", returned ? 1 : 0);
+            int numRowsAffected = db.update(TABLE_LOANS, values, "id=?", new String[]{String.valueOf(id)});
+            result = numRowsAffected > 0;
+        } catch (Exception ex) {
+            Log.e(TAG, "Error editing loan", ex);
+        } finally {
+            db.close();
+        }
+        return result;
+    }
+
+    public boolean editLoan(int id, boolean returned) {
+        boolean result = false;
+        SQLiteDatabase db = getWritableDatabase();
+        try {
+            ContentValues values = new ContentValues();
+            values.put("returned", returned ? 1 : 0);
             int numRowsAffected = db.update(TABLE_LOANS, values, "id=?", new String[]{String.valueOf(id)});
             result = numRowsAffected > 0;
         } catch (Exception ex) {
@@ -75,7 +91,7 @@ public class DataBaseLoan extends DataBaseSupport {
         also returns the id if success
              returns 0 if failed
      */
-    public long insertLoan(int id_partner, int id_book, String init_date, String fin_date, boolean devuelto) {
+    public long insertLoan(int id_partner, int id_book, String init_date, String fin_date, boolean returned) {
         long id = 0;
         SQLiteDatabase db = getWritableDatabase();
         try {
@@ -84,7 +100,7 @@ public class DataBaseLoan extends DataBaseSupport {
             values.put("id_book", id_book);
             values.put("init_date", init_date);
             values.put("fin_date", fin_date);
-            values.put("devuelto", devuelto ? 1 : 0);
+            values.put("returned", returned ? 1 : 0);
 
             id = db.insert(TABLE_LOANS, null, values);
         } catch (SQLiteException ex) {
@@ -115,7 +131,7 @@ public class DataBaseLoan extends DataBaseSupport {
                     loan.setBook_id(loanCursor.getInt(2));
                     loan.setInit_date(loanCursor.getString(3));
                     loan.setFin_date(loanCursor.getString(4));
-                    loan.setDevuelto(loanCursor.getInt(5) > 0);
+                    loan.setReturned(loanCursor.getInt(5) > 0);
                     loanList.add(loan);
                 } while (loanCursor.moveToNext());
             }
@@ -149,7 +165,7 @@ public class DataBaseLoan extends DataBaseSupport {
                 loan.setBook_id(loanCursor.getInt(2));
                 loan.setInit_date(loanCursor.getString(3));
                 loan.setFin_date(loanCursor.getString(4));
-                loan.setDevuelto(loanCursor.getInt(5) == 1);
+                loan.setReturned(loanCursor.getInt(5) == 1);
             }
         } catch (SQLiteException ex) {
             Log.e(TAG, "Error querying loan with id " + id, ex);
@@ -186,7 +202,7 @@ public class DataBaseLoan extends DataBaseSupport {
                     loan.setBook_id(loanCursor.getInt(2));
                     loan.setInit_date(loanCursor.getString(3));
                     loan.setFin_date(loanCursor.getString(4));
-                    loan.setDevuelto(loanCursor.getInt(5) == 1);
+                    loan.setReturned(loanCursor.getInt(5) == 1);
                     loanList.add(loan);
                 } while (loanCursor.moveToNext());
             }
@@ -223,7 +239,7 @@ public class DataBaseLoan extends DataBaseSupport {
                     loan.setPartner_id(loanCursor.getInt(2));
                     loan.setInit_date(loanCursor.getString(3));
                     loan.setFin_date(loanCursor.getString(4));
-                    loan.setDevuelto(loanCursor.getInt(5) > 0);
+                    loan.setReturned(loanCursor.getInt(5) > 0);
                     loanList.add(loan);
                 } while (loanCursor.moveToNext());
             }

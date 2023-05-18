@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.TextView;
 
 import com.tfg.virtualteca_tfg_angelpavonfraile.R;
 import com.tfg.virtualteca_tfg_angelpavonfraile.elements.Partner;
@@ -41,17 +42,17 @@ public class PartnerAdapter extends BaseAdapter {
         String full_name;
         LayoutInflater shown = LayoutInflater.from(context);
         View element = shown.inflate(R.layout.partner, viewGroup, false);
-/*
-        TextView full_name_tv = element.findViewById(R.id.full_name);
+
+        TextView full_name_tv = element.findViewById(R.id.partner_name);
         full_name = partners.get(i).getName() + partners.get(i).getSurname1() + partners.get(i).getSurname2() ;
         full_name_tv.setText(full_name);
         
-        TextView phn = element.findViewById(R.id.phone_number);
+        TextView phn = element.findViewById(R.id.partner_phoneNum);
         phn.setText(partners.get(i).getPhone_number());
 
-        TextView email = element.findViewById(R.id.email);
+        TextView email = element.findViewById(R.id.partner_email);
         email.setText(partners.get(i).getEmail());
-*/
+
         return element;
     }
 

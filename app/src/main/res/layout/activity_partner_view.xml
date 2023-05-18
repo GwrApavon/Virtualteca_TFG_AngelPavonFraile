@@ -59,13 +59,13 @@
         android:ems="10"
         android:hint="@string/Name"
         android:textColorHint="#8D6E63"
-        app:layout_constraintBottom_toTopOf="@+id/Surname1TextView"
+        app:layout_constraintBottom_toTopOf="@+id/surname1TextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/Surname1TextView"
+        android:id="@+id/surname1TextView"
         android:layout_width="366dp"
         android:layout_height="50dp"
         android:layout_marginStart="22dp"
@@ -75,14 +75,14 @@
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/First_Surname"
-        app:layout_constraintBottom_toTopOf="@+id/Surname2TextView"
+        app:layout_constraintBottom_toTopOf="@+id/surname2TextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nameTextView"
         tools:ignore="TextContrastCheck" />
 
     <TextView
-        android:id="@+id/Surname2TextView"
+        android:id="@+id/surname2TextView"
         android:layout_width="366dp"
         android:layout_height="50dp"
         android:layout_marginStart="22dp"
@@ -92,14 +92,14 @@
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/Second_Surname"
-        app:layout_constraintBottom_toTopOf="@+id/DNItextView"
+        app:layout_constraintBottom_toTopOf="@+id/dniTextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Surname1TextView"
+        app:layout_constraintTop_toBottomOf="@+id/surname1TextView"
         tools:ignore="TextContrastCheck" />
 
     <TextView
-        android:id="@+id/DNItextView"
+        android:id="@+id/dniTextView"
         android:layout_width="366dp"
         android:layout_height="50dp"
         android:layout_marginStart="22dp"
@@ -114,7 +114,7 @@
         app:layout_constraintBottom_toTopOf="@+id/phoneNumTextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Surname2TextView" />
+        app:layout_constraintTop_toBottomOf="@+id/surname2TextView" />
 
     <TextView
         android:id="@+id/phoneNumTextView"
@@ -131,7 +131,7 @@
         app:layout_constraintBottom_toTopOf="@+id/emailTextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/DNItextView" />
+        app:layout_constraintTop_toBottomOf="@+id/dniTextView" />
 
     <TextView
         android:id="@+id/emailTextView"

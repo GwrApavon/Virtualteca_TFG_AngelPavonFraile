@@ -6,17 +6,17 @@ public class Loan {
     private int book_id;
     private String init_date;
     private String fin_date;
-    private boolean devuelto;
+    private boolean returned;
 
     public Loan() {
     }
 
-    public Loan(int partner_id, int book_id, String init_date, String fin_date, boolean devuelto) {
+    public Loan(int partner_id, int book_id, String init_date, String fin_date, boolean returned) {
         this.partner_id = partner_id;
         this.book_id = book_id;
         this.init_date = init_date;
         this.fin_date = fin_date;
-        this.devuelto = devuelto;
+        this.returned = returned;
     }
 
     public int getLoan_id() {
@@ -59,12 +59,12 @@ public class Loan {
         this.fin_date = fin_date;
     }
 
-    public boolean isDevuelto() {
-        return devuelto;
+    public boolean getReturned() {
+        return returned;
     }
 
-    public void setDevuelto(boolean devuelto) {
-        this.devuelto = devuelto;
+    public void setReturned(boolean devuelto) {
+        this.returned = devuelto;
     }
 
 }

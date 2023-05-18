@@ -5,9 +5,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.TextView;
 
+import com.tfg.virtualteca_tfg_angelpavonfraile.DBSettings.DataBaseBook;
+import com.tfg.virtualteca_tfg_angelpavonfraile.DBSettings.DataBaseLoan;
+import com.tfg.virtualteca_tfg_angelpavonfraile.DBSettings.DataBasePartner;
 import com.tfg.virtualteca_tfg_angelpavonfraile.R;
+import com.tfg.virtualteca_tfg_angelpavonfraile.elements.Book;
 import com.tfg.virtualteca_tfg_angelpavonfraile.elements.Loan;
+import com.tfg.virtualteca_tfg_angelpavonfraile.elements.Partner;
 
 import java.util.ArrayList;
 
@@ -40,41 +48,38 @@ public class LoanAdapter extends BaseAdapter {
 
         LayoutInflater shown = LayoutInflater.from(context);
         View element = shown.inflate(R.layout.loan, viewGroup, false);
-        DataBaseBook dbb = new DataBaseBook(LoanAdapter.this);
-        DataBasePartner dbp = new DataBasePartner(LoanAdapter.this);
+        DataBaseBook dbb = new DataBaseBook(context);
+        DataBasePartner dbp = new DataBasePartner(context);
         
         Book book = dbb.getBookById(loans.get(i).getBook_id());
         Partner partner = dbp.getPartnerById(loans.get(i).getPartner_id());
- /*
-        //PARTNER
-        TextView full_name_tv = element.findViewById(R.id.full_name);
-        full_name = partner.getName() + partner.getSurname1() + partner.getSurname2() ;
-        full_name_tv.setText(full_name);
-        
-        TextView phn = element.findViewById(R.id.phone_number);
-        phn.setText(partner.getPhone_number());
 
-        TextView email = element.findViewById(R.id.email);
-        email.setText(partner.getEmail());
+        //PARTNER
+        TextView full_name_tv = element.findViewById(R.id.partner_name);
+        String full_name = partner.getName() + partner.getSurname1() + partner.getSurname2() ;
+        full_name_tv.setText(full_name);
        
         //BOOK
         TextView title = element.findViewById(R.id.book_title);
         title.setText(book.getTitle());
-
-        TextView author = element.findViewById(R.id.book_author);
-        author.setText(book.getAuthor());
-
-        TextView editorial = element.findViewById(R.id.book_editorial);a
-        editorial.setText(book.getEditorial());
         
         //LOAN
         TextView fin_date = element.findViewById(R.id.fin_date);
         fin_date.setText(loans.get(i).getFin_date());
 
-        CheckBox devuelto = element.findViewById(R.id.devuelto);
+        CheckBox returned = element.findViewById(R.id.returned);
         //si isDevuelto() checkbox marcada else no marcada
-        //devuelto.setText(String.valueOf(loans.get(i).isDevuelto()));
-*/
+        returned.setChecked(loans.get(i).getReturned());
+
+        returned.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                DataBaseLoan dbl = new DataBaseLoan(context);
+                int loan_id = loans.get(i).getLoan_id();
+                dbl.editLoan(loan_id, returned.isChecked());
+            }
+        });
+
         return element;
     }
 
