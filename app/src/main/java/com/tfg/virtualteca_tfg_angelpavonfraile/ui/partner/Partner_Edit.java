@@ -48,7 +48,7 @@ public class Partner_Edit extends AppCompatActivity {
         email_text = findViewById(R.id.emailTextEdit);
 		
 		/* SAVE CHANGES DB */
-        Button b_save = findViewById(R.id.saveButton);
+        Button b_save = findViewById(R.id.saveButton2);
         b_save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

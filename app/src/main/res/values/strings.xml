@@ -22,4 +22,9 @@
     <string name="SaveChanges">GUARDAR CAMBIOS</string>
     <string name="clean_db">LIMPIAR BASE DE DATOS</string>
     <string name="Pbl_date">Fecha de Publicación</string>
+    <string name="SelectBook">Selecciona un libro:</string>
+    <string name="Picker">Seleccionar</string>
+    <string name="fecha_de_inicio">Fecha de Inicio</string>
+    <string name="fecha_final">Fecha final</string>
+    <string name="SelectPartner">Selecciona un socio:</string>
 </resources>
