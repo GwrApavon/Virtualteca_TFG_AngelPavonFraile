@@ -37,8 +37,8 @@ public class BookPicker extends AppCompatActivity {
                 if (pos < books.size()) {
                     Book book = books.get(pos);
                     int id = book.getBook_id();
-                    Intent intent = new Intent(BookPicker.this, Book_View.class);
-                    intent.putExtra("ID", id);
+                    Intent intent = new Intent(BookPicker.this, Loan_add.class);
+                    intent.putExtra("BOOK_ID", id);
                     setResult(Activity.RESULT_OK, intent);
                     finish();
                 }
