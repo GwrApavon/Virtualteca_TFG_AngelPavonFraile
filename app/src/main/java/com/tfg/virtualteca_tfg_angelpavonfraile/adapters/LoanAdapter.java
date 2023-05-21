@@ -17,15 +17,22 @@ import com.tfg.virtualteca_tfg_angelpavonfraile.elements.Book;
 import com.tfg.virtualteca_tfg_angelpavonfraile.elements.Loan;
 import com.tfg.virtualteca_tfg_angelpavonfraile.elements.Partner;
 
+import java.sql.Array;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class LoanAdapter extends BaseAdapter {
     Context context;
-    ArrayList<Loan> loans = new ArrayList<>();
+    ArrayList<Loan> loans;
+    ArrayList<Loan> loansOriginal;
+
 
     public LoanAdapter(Context context, ArrayList<Loan> loans) {
         this.context = context;
         this.loans = loans;
+        loansOriginal = new ArrayList<>();
+        loansOriginal.addAll(loans);
     }
 
     @Override
@@ -68,7 +75,6 @@ public class LoanAdapter extends BaseAdapter {
         fin_date.setText(loans.get(i).getFin_date());
 
         CheckBox returned = element.findViewById(R.id.returned);
-        //si isDevuelto() checkbox marcada else no marcada
         returned.setChecked(loans.get(i).getReturned());
 
         returned.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -83,4 +89,29 @@ public class LoanAdapter extends BaseAdapter {
         return element;
     }
 
+    public void filter (String search, int option){
+        int length = search.length();
+        if(length == 0){
+            loans.clear();
+            loans.addAll(loansOriginal);
+        }
+        else{
+            if (option == 1) {
+                List<Loan> collection = loans.stream()
+                        .filter(i -> i.getPartner(context).getName().toLowerCase().contains(search.toLowerCase()))
+                        .collect(Collectors.toList());
+                loans.clear();
+                loans.addAll(collection);
+            }
+            else if (option == 2){
+                List<Loan> collection = loans.stream()
+                        .filter(i -> i.getBook(context).getTitle().toLowerCase().contains(search.toLowerCase()))
+                        .collect(Collectors.toList());
+                loans.clear();
+                loans.addAll(collection);
+            }
+        }
+
+        notifyDataSetChanged();
+    }
 }

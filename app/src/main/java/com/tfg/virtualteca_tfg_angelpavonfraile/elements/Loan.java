@@ -1,9 +1,17 @@
 package com.tfg.virtualteca_tfg_angelpavonfraile.elements;
 
+import android.content.Context;
+
+import com.tfg.virtualteca_tfg_angelpavonfraile.DBSettings.DataBaseBook;
+import com.tfg.virtualteca_tfg_angelpavonfraile.DBSettings.DataBasePartner;
+
 public class Loan {
     private int loan_id;
     private int partner_id;
+
+    private Partner partner;
     private int book_id;
+    private Book book;
     private String init_date;
     private String fin_date;
     private boolean returned;
@@ -63,8 +71,22 @@ public class Loan {
         return returned;
     }
 
-    public void setReturned(boolean devuelto) {
-        this.returned = devuelto;
+    public void setReturned(boolean returned) {
+        this.returned = returned;
+    }
+
+
+    public Partner getPartner(Context context) {
+
+        DataBasePartner dbp = new DataBasePartner(context);
+        partner = dbp.getPartnerById(partner_id);
+        return partner;
+    }
+
+    public Book getBook(Context context) {
+        DataBaseBook dbb = new DataBaseBook(context);
+        book = dbb.getBookById(book_id);
+        return book;
     }
 
 }

@@ -29,6 +29,8 @@
             android:layout_weight="1"
             android:contentDescription="@string/Nothing"
             app:icon="@drawable/house_solid"
+            app:iconTint="@color/black"
+            app:strokeColor="@color/black"
             tools:ignore="TouchTargetSizeCheck" />
 
         <Button
@@ -40,6 +42,8 @@
             android:layout_weight="1"
             android:contentDescription="@string/Nothing"
             app:icon="@drawable/book_solid"
+            app:iconTint="@color/black"
+            app:strokeColor="@color/black"
             tools:ignore="TouchTargetSizeCheck" />
 
         <Button
@@ -51,6 +55,8 @@
             android:layout_weight="1"
             android:contentDescription="@string/Nothing"
             app:icon="@drawable/person_solid"
+            app:iconTint="@color/black"
+            app:strokeColor="@color/black"
             tools:ignore="TouchTargetSizeCheck" />
 
         <Button
@@ -62,6 +68,8 @@
             android:layout_weight="1"
             android:contentDescription="@string/Nothing"
             app:icon="@drawable/book_open_reader_solid"
+            app:iconTint="@color/black"
+            app:strokeColor="@color/black"
             tools:ignore="TouchTargetSizeCheck" />
     </LinearLayout>
 
@@ -73,6 +81,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:text="@string/create_db"
+        android:textColor="@color/black"
         app:cornerRadius="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -91,6 +100,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:text="@string/clean_db"
+        android:textColor="@color/black"
         app:cornerRadius="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.loan.Loan_add">
+
+
+    <LinearLayout
+        android:id="@+id/bookPickerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/partnerPickerLayoutView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/bookPickerTextView"
+            android:layout_width="243dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="start|center_vertical"
+            android:hint="@string/SelectBook"
+            android:textAlignment="gravity"
+            android:textColorHint="#A1887F"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/bookPickerView"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="55dp"
+            android:layout_weight="1"
+            android:text="@string/View"
+            app:cornerRadius="20dp"
+            app:layout_constraintVertical_bias="0.912"
+            app:strokeColor="@color/black"
+            tools:ignore="VisualLintButtonSize" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/partnerPickerLayoutView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/init_dateTextView"
+        app:layout_constraintTop_toBottomOf="@+id/bookPickerLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/partnerPickerTextView"
+            android:layout_width="243dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="start|center_vertical"
+            android:hint="@string/SelectPartner"
+            android:textAlignment="gravity"
+            android:textColorHint="#A1887F"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/partnerPickerView"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="55dp"
+            android:layout_weight="1"
+            android:text="@string/View"
+            app:cornerRadius="20dp"
+            app:layout_constraintVertical_bias="0.912"
+            app:strokeColor="@color/black"
+            tools:ignore="VisualLintButtonSize" />
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/init_dateTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/fecha_de_inicio"
+        android:inputType="date"
+        android:minHeight="48dp"
+        android:textColorHint="#8D6E63"
+        app:layout_constraintBottom_toTopOf="@+id/fin_dateTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/partnerPickerLayoutView"
+        tools:ignore="VisualLintTextFieldSize" />
+
+    <EditText
+        android:id="@+id/fin_dateTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="120dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/fin_date"
+        android:inputType="date"
+        android:minHeight="48dp"
+        android:textColorHint="#8D6E63"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/init_dateTextView"
+        tools:ignore="VisualLintTextFieldSize" />
+
+    <Button
+        android:id="@+id/editButton3"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="77dp"
+        android:layout_height="61dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/Nothing"
+        android:textAlignment="center"
+        app:cornerRadius="20dp"
+        app:icon="@drawable/pen_to_square_solid"
+        app:iconSize="35dp"
+        app:iconTint="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.932"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.974"
+        app:strokeColor="@color/black"/>
+
+    <Button
+        android:id="@+id/deleteButton3"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="77dp"
+        android:layout_height="61dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/Nothing"
+        android:textAlignment="center"
+        app:cornerRadius="20dp"
+        app:icon="@drawable/trash_solid"
+        app:iconSize="35dp"
+        app:iconTint="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.065"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.975"
+        app:strokeColor="@color/black"/>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

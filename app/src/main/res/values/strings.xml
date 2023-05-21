@@ -27,4 +27,10 @@
     <string name="fecha_de_inicio">Fecha de Inicio</string>
     <string name="fecha_final">Fecha final</string>
     <string name="SelectPartner">Selecciona un socio:</string>
+    <string name="partner">Socio</string>
+    <string name="Partners">Socios</string>
+    <string name="Books">Libros</string>
+    <string name="ViewBook">Ver</string>
+    <string name="View">Ver</string>
+    <string name="fin_date">Fecha finalización</string>
 </resources>

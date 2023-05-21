@@ -11,14 +11,19 @@ import com.tfg.virtualteca_tfg_angelpavonfraile.R;
 import com.tfg.virtualteca_tfg_angelpavonfraile.elements.Partner;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class PartnerAdapter extends BaseAdapter {
     Context context;
-    ArrayList<Partner> partners = new ArrayList<>();
+    ArrayList<Partner> partners;
+    ArrayList<Partner> partnersOriginal;
 
     public PartnerAdapter(Context context, ArrayList<Partner> partners) {
         this.context = context;
         this.partners = partners;
+        partnersOriginal = new ArrayList<>();
+        partnersOriginal.addAll(partners);
     }
 
     @Override
@@ -56,6 +61,21 @@ public class PartnerAdapter extends BaseAdapter {
         return element;
     }
 
+    public void filter (String search){
+        int length = search.length();
+        if(length == 0){
+            partners.clear();
+            partners.addAll(partnersOriginal);
+        }
+        else{
+            List<Partner> collection =  partners.stream()
+                    .filter(i -> i.getName().toLowerCase().contains(search.toLowerCase()))
+                    .collect(Collectors.toList());
+            partners.clear();
+            partners.addAll(collection);
+        }
 
+        notifyDataSetChanged();
+    }
 
 }

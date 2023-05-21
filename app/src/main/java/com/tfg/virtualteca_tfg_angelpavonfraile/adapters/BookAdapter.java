@@ -9,15 +9,22 @@ import android.widget.TextView;
 
 import com.tfg.virtualteca_tfg_angelpavonfraile.R;
 import com.tfg.virtualteca_tfg_angelpavonfraile.elements.Book;
+import com.tfg.virtualteca_tfg_angelpavonfraile.elements.Partner;
+
 import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class BookAdapter extends BaseAdapter {
     Context context;
-    ArrayList<Book> books = new ArrayList<>();
+    ArrayList<Book> books;
+    ArrayList<Book> booksOriginal;
 
     public BookAdapter(Context context, ArrayList<Book> books) {
         this.context = context;
         this.books = books;
+        booksOriginal = new ArrayList<>();
+        booksOriginal.addAll(books);
     }
 
     @Override
@@ -35,7 +42,6 @@ public class BookAdapter extends BaseAdapter {
         return i;
     }
 
-    // Comprobar cuales sobran
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
 
@@ -54,6 +60,21 @@ public class BookAdapter extends BaseAdapter {
         return element;
     }
 
+    public void filter (String search){
+        int length = search.length();
+        if(length == 0){
+            books.clear();
+            books.addAll(booksOriginal);
+        }
+        else{
+            List<Book> collection =  books.stream()
+                    .filter(i -> i.getTitle().toLowerCase().contains(search.toLowerCase()))
+                    .collect(Collectors.toList());
+            books.clear();
+            books.addAll(collection);
+        }
 
+        notifyDataSetChanged();
+    }
 
 }
