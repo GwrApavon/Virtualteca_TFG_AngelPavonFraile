@@ -88,8 +88,8 @@ public class Loan_Add extends AppCompatActivity {
             }
         });
 
-        Button b_edit_loan = findViewById(R.id.saveButton3);
-        b_edit_loan.setOnClickListener(new View.OnClickListener() {
+        Button b_add_loan = findViewById(R.id.saveButton3);
+        b_add_loan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 long result = 0;
