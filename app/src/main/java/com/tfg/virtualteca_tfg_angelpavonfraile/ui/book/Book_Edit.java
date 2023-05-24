@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import com.tfg.virtualteca_tfg_angelpavonfraile.DBSettings.DataBaseBook;
 import com.tfg.virtualteca_tfg_angelpavonfraile.R;
+import com.tfg.virtualteca_tfg_angelpavonfraile.elements.Book;
 
 public class Book_Edit extends AppCompatActivity {
 
@@ -53,6 +54,8 @@ public class Book_Edit extends AppCompatActivity {
         pbl_date_text = findViewById(R.id.pbl_dateTextEdit);
         synopsis_text = findViewById(R.id.synopsisTextEdit);
 
+        fillTextView(book_id);
+
         /* SAVE CHANGES DB */
         Button b_save = findViewById(R.id.saveButton);
         b_save.setOnClickListener(new View.OnClickListener() {
@@ -68,15 +71,15 @@ public class Book_Edit extends AppCompatActivity {
                 editorial = editorial_text.getText().toString();
                 pbl_date = pbl_date_text.getText().toString();
                 synopsis = synopsis_text.getText().toString();
-                if (checkEmpty()) {
+                if (!isEmpty()) {
                     result =  dbb.editBook(book_id,title, ISBN, author, language, genre, editorial, pbl_date, synopsis);
 
                     if(result){
-                        Toast.makeText(Book_Edit.this, "REGISTRO AÑADIDO", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Book_Edit.this, "REGISTRO EDITADO", Toast.LENGTH_SHORT).show();
                         finish();
                     }
                     else {
-                        Toast.makeText(Book_Edit.this, "ERROR AL AÑADIR REGISTRO", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Book_Edit.this, "ERROR AL EDITAR REGISTRO", Toast.LENGTH_SHORT).show();
                     }
                 }
                 else {
@@ -86,8 +89,37 @@ public class Book_Edit extends AppCompatActivity {
         });
     }
 
-    private boolean checkEmpty(){
-        return !title.equals("") && ISBN != 0 && author.equals("") && language.equals("") && genre.equals("")
+    private boolean isEmpty(){
+        return title.equals("") && ISBN != 0 && author.equals("") && language.equals("") && genre.equals("")
                 && editorial.equals("") && pbl_date.equals("") && synopsis.equals("");
+    }
+
+    public void fillTextView(int book_id){
+        Book book;
+        String title, author, language, genre, editorial, pbl_date, synopsis, ISBN;
+
+        DataBaseBook dbb = new DataBaseBook(Book_Edit.this);
+
+        book = dbb.getBookById(book_id);
+
+        if (book != null) {
+            title = book.getTitle();
+            title_text.setText(title);
+            ISBN = book.getISBN() + "";
+            ISBN_text.setText(ISBN);
+            author = book.getAuthor();
+            author_text.setText(author);
+            language = book.getLanguage();
+            language_text.setText(language);
+            genre = book.getGenre();
+            genre_text.setText(genre);
+            editorial = book.getEditorial();
+            editorial_text.setText(editorial);
+            pbl_date = book.getPbl_date();
+            pbl_date_text.setText(pbl_date);
+            synopsis = book.getSynopsis();
+            synopsis_text.setText(synopsis);
+        }
+
     }
 }

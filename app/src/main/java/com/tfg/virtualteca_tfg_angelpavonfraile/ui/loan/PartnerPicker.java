@@ -42,7 +42,7 @@ public class PartnerPicker extends AppCompatActivity implements SearchView.OnQue
                 if (pos < partners.size()) {
                     partner = partners.get(pos);
                     int id = partner.getPartner_id();
-                    Intent intent = new Intent(PartnerPicker.this, Loan_add.class);
+                    Intent intent = new Intent(PartnerPicker.this, Loan_Add.class);
                     intent.putExtra("PARTNER_ID", id);
                     setResult(Activity.RESULT_OK, intent);
                     finish();

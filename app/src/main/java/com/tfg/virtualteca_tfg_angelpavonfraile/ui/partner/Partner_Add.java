@@ -29,7 +29,7 @@ public class Partner_Add extends AppCompatActivity {
         email_text = findViewById(R.id.emailText);
 		
 		/* INSERT NEW PARTNER INTO DB */
-        Button b_add_partner = findViewById(R.id.saveButton);
+        Button b_add_partner = findViewById(R.id.saveButton2);
         b_add_partner.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -43,7 +43,7 @@ public class Partner_Add extends AppCompatActivity {
                 phone_number = phone_number_text.getText().toString();
                 email = email_text.getText().toString();
 				
-				if (checkEmpty()) {
+				if (!isEmpty()) {
                     result = dbp.insertPartner(dni, name, surname1, surname2, phone_number, email);
 
                     if(result != 0 ){
@@ -60,9 +60,10 @@ public class Partner_Add extends AppCompatActivity {
             }
         });
     }
-	/* CHECK FIELDS NOT EMPTY */
-	private boolean checkEmpty(){
-        return !dni.equals("") && name.equals("") && surname1.equals("") && surname2.equals("")
+
+    /* CHECK FIELDS NOT EMPTY */
+	private boolean isEmpty(){
+        return dni.equals("") && name.equals("") && surname1.equals("") && surname2.equals("")
                 && phone_number.equals("") && email.equals("");
     }
 }

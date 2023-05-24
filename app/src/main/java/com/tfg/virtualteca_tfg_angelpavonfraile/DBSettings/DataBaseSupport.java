@@ -26,7 +26,7 @@ public class DataBaseSupport extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL("CREATE TABLE " + TABLE_BOOKS + "(" +
                 "id_book INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "title TEXT NOT NULL," +
-                "ISBN INTEGER NOT NULL," +
+                "ISBN TEXT NOT NULL," +
                 "author TEXT NOT NULL," +
                 "language TEXT NOT NULL," +
                 "genre TEXT NOT NULL," +

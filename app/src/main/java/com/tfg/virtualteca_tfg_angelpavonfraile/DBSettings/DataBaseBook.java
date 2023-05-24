@@ -82,7 +82,7 @@ public class DataBaseBook extends DataBaseSupport {
         also returns the id if success
              returns 0 if failed
      */
-    public long insertBook(String title, int ISBN, String author, String language, String genre, String editorial, String pbl_date, String synopsis) {
+    public long insertBook(String title, String ISBN, String author, String language, String genre, String editorial, String pbl_date, String synopsis) {
 		long id = 0;
 		SQLiteDatabase db = null;
 		try {

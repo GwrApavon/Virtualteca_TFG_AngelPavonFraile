@@ -63,7 +63,7 @@ public class LoanAdapter extends BaseAdapter {
 
         //PARTNER
         TextView full_name_tv = element.findViewById(R.id.partner_name);
-        String full_name = partner.getName() + partner.getSurname1() + partner.getSurname2() ;
+        String full_name = partner.getName() + " " + partner.getSurname1() + " " + partner.getSurname2() ;
         full_name_tv.setText(full_name);
        
         //BOOK

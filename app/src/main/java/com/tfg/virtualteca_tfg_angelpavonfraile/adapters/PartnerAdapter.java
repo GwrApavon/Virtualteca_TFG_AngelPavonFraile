@@ -49,7 +49,7 @@ public class PartnerAdapter extends BaseAdapter {
         View element = shown.inflate(R.layout.partner, viewGroup, false);
 
         TextView full_name_tv = element.findViewById(R.id.partner_name);
-        full_name = partners.get(i).getName() + partners.get(i).getSurname1() + partners.get(i).getSurname2() ;
+        full_name = partners.get(i).getName() + " " + partners.get(i).getSurname1() + " " + partners.get(i).getSurname2() ;
         full_name_tv.setText(full_name);
         
         TextView phn = element.findViewById(R.id.partner_phoneNum);

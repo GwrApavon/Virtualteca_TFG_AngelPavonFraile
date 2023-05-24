@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import com.tfg.virtualteca_tfg_angelpavonfraile.DBSettings.DataBasePartner;
 import com.tfg.virtualteca_tfg_angelpavonfraile.R;
+import com.tfg.virtualteca_tfg_angelpavonfraile.elements.Partner;
 
 public class Partner_Edit extends AppCompatActivity {
 
@@ -46,7 +47,8 @@ public class Partner_Edit extends AppCompatActivity {
         surname2_text = findViewById(R.id.surname2TextEdit);
         phone_number_text = findViewById(R.id.phoneNumTextEdit);
         email_text = findViewById(R.id.emailTextEdit);
-		
+
+        fillTextView(partner_id);
 		/* SAVE CHANGES DB */
         Button b_save = findViewById(R.id.saveButton2);
         b_save.setOnClickListener(new View.OnClickListener() {
@@ -66,11 +68,11 @@ public class Partner_Edit extends AppCompatActivity {
                     result = dbp.editPartner(partner_id, dni, name, surname1, surname2, phone_number, email);
 
                     if(result){
-                        Toast.makeText(Partner_Edit.this, "REGISTRO AÑADIDO", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Partner_Edit.this, "REGISTRO EDITADO", Toast.LENGTH_SHORT).show();
                         finish();
                     }
                     else {
-                        Toast.makeText(Partner_Edit.this, "ERROR AL AÑADIR REGISTRO", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Partner_Edit.this, "ERROR AL EDITAR REGISTRO", Toast.LENGTH_SHORT).show();
                     }
                 }
                 else {
@@ -83,5 +85,31 @@ public class Partner_Edit extends AppCompatActivity {
 	private boolean checkEmpty(){
         return !dni.equals("") && name.equals("") && surname1.equals("") && surname2.equals("")
                 && phone_number.equals("") && email.equals("");
+    }
+
+    //fills de text fields in the activity
+    public void fillTextView(int partner_id) {
+        Partner partner;
+        String dni, name, surname1, surname2, phone_number, email;
+
+        DataBasePartner dbp = new DataBasePartner(Partner_Edit.this);
+
+
+        partner = dbp.getPartnerById(partner_id);
+
+        if (partner != null) {
+            dni = partner.getDni();
+            dni_text.setText(dni);
+            name = partner.getName();
+            name_text.setText(name);
+            surname1 = partner.getSurname1();
+            surname1_text.setText(surname1);
+            surname2 = partner.getSurname2();
+            surname2_text.setText(surname2);
+            phone_number = partner.getPhone_number();
+            phone_number_text.setText(phone_number);
+            email = partner.getEmail();
+            email_text.setText(email);
+        }
     }
 }

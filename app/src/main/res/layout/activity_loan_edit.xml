@@ -8,19 +8,19 @@
 
 
     <LinearLayout
-        android:id="@+id/bookPickerLayout"
+        android:id="@+id/bookPickerLayoutEdit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/partnerPickerLayoutView"
+        app:layout_constraintBottom_toTopOf="@+id/partnerPickerLayoutEdit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/bookPickerTextView"
+            android:id="@+id/bookPickerTextEdit"
             android:layout_width="243dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -31,31 +31,30 @@
             android:textSize="20sp" />
 
         <Button
-            android:id="@+id/bookPickerView"
+            android:id="@+id/bookPickerEdit"
             style="?attr/materialButtonOutlinedStyle"
             android:layout_width="wrap_content"
             android:layout_height="55dp"
             android:layout_weight="1"
-            android:text="@string/View"
+            android:text="@string/Picker"
             app:cornerRadius="20dp"
             app:layout_constraintVertical_bias="0.912"
-            app:strokeColor="@color/black"
-            tools:ignore="VisualLintButtonSize" />
+            app:strokeColor="@color/black" />
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/partnerPickerLayoutView"
+        android:id="@+id/partnerPickerLayoutEdit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/init_dateTextView"
-        app:layout_constraintTop_toBottomOf="@+id/bookPickerLayout"
+        app:layout_constraintBottom_toTopOf="@+id/init_dateTextEdit"
+        app:layout_constraintTop_toBottomOf="@+id/bookPickerLayoutEdit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
         <TextView
-            android:id="@+id/partnerPickerTextView"
+            android:id="@+id/partnerPickerTextEdit"
             android:layout_width="243dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -66,20 +65,19 @@
             android:textSize="20sp" />
 
         <Button
-            android:id="@+id/partnerPickerView"
+            android:id="@+id/partnerPickerEdit"
             style="?attr/materialButtonOutlinedStyle"
             android:layout_width="wrap_content"
             android:layout_height="55dp"
             android:layout_weight="1"
-            android:text="@string/View"
+            android:text="@string/Picker"
             app:cornerRadius="20dp"
             app:layout_constraintVertical_bias="0.912"
-            app:strokeColor="@color/black"
-            tools:ignore="VisualLintButtonSize" />
+            app:strokeColor="@color/black" />
     </LinearLayout>
 
     <EditText
-        android:id="@+id/init_dateTextView"
+        android:id="@+id/init_dateTextEdit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -90,70 +88,44 @@
         android:inputType="date"
         android:minHeight="48dp"
         android:textColorHint="#8D6E63"
-        app:layout_constraintBottom_toTopOf="@+id/fin_dateTextView"
+        app:layout_constraintBottom_toTopOf="@+id/fin_dateTextEdit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/partnerPickerLayoutView"
-        tools:ignore="VisualLintTextFieldSize" />
+        app:layout_constraintTop_toBottomOf="@+id/partnerPickerLayoutEdit" />
 
     <EditText
-        android:id="@+id/fin_dateTextView"
+        android:id="@+id/fin_dateTextEdit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:layout_marginBottom="120dp"
+        android:layout_marginBottom="20dp"
         android:autofillHints=""
         android:ems="10"
-        android:hint="@string/fin_date"
+        android:hint="@string/fecha_final"
         android:inputType="date"
         android:minHeight="48dp"
         android:textColorHint="#8D6E63"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/saveButton3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/init_dateTextView"
-        tools:ignore="VisualLintTextFieldSize" />
+        app:layout_constraintTop_toBottomOf="@+id/init_dateTextEdit" />
 
     <Button
-        android:id="@+id/editButton3"
+        android:id="@+id/saveButton3"
         style="?attr/materialButtonOutlinedStyle"
-        android:layout_width="77dp"
-        android:layout_height="61dp"
+        android:layout_width="277dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="22dp"
         android:layout_marginTop="24dp"
-        android:text="@string/Nothing"
-        android:textAlignment="center"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="10dp"
+        android:text="@string/SaveChanges"
         app:cornerRadius="20dp"
-        app:icon="@drawable/pen_to_square_solid"
-        app:iconSize="35dp"
-        app:iconTint="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.932"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.974"
-        app:strokeColor="@color/black"/>
-
-    <Button
-        android:id="@+id/deleteButton3"
-        style="?attr/materialButtonOutlinedStyle"
-        android:layout_width="77dp"
-        android:layout_height="61dp"
-        android:layout_marginTop="24dp"
-        android:text="@string/Nothing"
-        android:textAlignment="center"
-        app:cornerRadius="20dp"
-        app:icon="@drawable/trash_solid"
-        app:iconSize="35dp"
-        app:iconTint="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.065"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.975"
-        app:strokeColor="@color/black"/>
-
-
+        app:layout_constraintVertical_bias="0.912"
+        app:strokeColor="@color/black" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,8 +10,10 @@ import android.widget.Button;
 import android.widget.ListView;
 
 import com.tfg.virtualteca_tfg_angelpavonfraile.DBSettings.DataBaseBook;
+import com.tfg.virtualteca_tfg_angelpavonfraile.DBSettings.DataBasePartner;
 import com.tfg.virtualteca_tfg_angelpavonfraile.R;
 import com.tfg.virtualteca_tfg_angelpavonfraile.adapters.BookAdapter;
+import com.tfg.virtualteca_tfg_angelpavonfraile.adapters.PartnerAdapter;
 import com.tfg.virtualteca_tfg_angelpavonfraile.elements.Book;
 import com.tfg.virtualteca_tfg_angelpavonfraile.ui.loan.Activity_Loan;
 import com.tfg.virtualteca_tfg_angelpavonfraile.ui.partner.Activity_Partner;
@@ -20,6 +22,9 @@ import java.util.ArrayList;
 
 public class Activity_Book extends AppCompatActivity {
 
+    ListView book_list;
+    DataBaseBook dbb;
+    BookAdapter ba;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,9 +60,9 @@ public class Activity_Book extends AppCompatActivity {
         });
 
 
-        ListView book_list = findViewById(R.id.book_list);
-        DataBaseBook dbb = new DataBaseBook(this);
-        BookAdapter ba = new BookAdapter(this, dbb.bookList());
+        book_list = findViewById(R.id.book_list);
+        dbb = new DataBaseBook(this);
+        ba = new BookAdapter(this, dbb.bookList());
         book_list.setAdapter(ba);
 
         book_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -83,5 +88,14 @@ public class Activity_Book extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    //Refresh the list to show the added partner
+    public void onResume() {
+        super.onResume();
+        book_list = findViewById(R.id.book_list);
+        dbb = new DataBaseBook(this);
+        ba = new BookAdapter(this, dbb.bookList());
+        book_list.setAdapter(ba);
     }
 }

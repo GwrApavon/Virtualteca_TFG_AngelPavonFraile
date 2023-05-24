@@ -3,16 +3,32 @@ package com.tfg.virtualteca_tfg_angelpavonfraile.ui.partner;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.tfg.virtualteca_tfg_angelpavonfraile.DBSettings.DataBaseBook;
+import com.tfg.virtualteca_tfg_angelpavonfraile.DBSettings.DataBaseLoan;
+import com.tfg.virtualteca_tfg_angelpavonfraile.DBSettings.DataBasePartner;
 import com.tfg.virtualteca_tfg_angelpavonfraile.R;
+import com.tfg.virtualteca_tfg_angelpavonfraile.adapters.BookAdapter;
+import com.tfg.virtualteca_tfg_angelpavonfraile.adapters.LoanAdapter;
+import com.tfg.virtualteca_tfg_angelpavonfraile.adapters.PartnerAdapter;
+import com.tfg.virtualteca_tfg_angelpavonfraile.elements.Book;
+import com.tfg.virtualteca_tfg_angelpavonfraile.elements.Partner;
 import com.tfg.virtualteca_tfg_angelpavonfraile.ui.book.Activity_Book;
+import com.tfg.virtualteca_tfg_angelpavonfraile.ui.book.Book_View;
 import com.tfg.virtualteca_tfg_angelpavonfraile.ui.loan.Activity_Loan;
+
+import java.util.ArrayList;
 
 public class Activity_Partner extends AppCompatActivity {
 
+    ListView partner_list;
+    DataBasePartner dbp;
+    PartnerAdapter pa;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +64,24 @@ public class Activity_Partner extends AppCompatActivity {
             }
         });
 
+        partner_list = findViewById(R.id.partner_list);
+        dbp = new DataBasePartner(this);
+        pa = new PartnerAdapter(this, dbp.partnerList());
+        partner_list.setAdapter(pa);
+
+        partner_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int pos, long l) {
+                ArrayList<Partner> partners = dbp.partnerList();
+                if (pos < partners.size()) {
+                    Partner partner = partners.get(pos);
+                    int id = partner.getPartner_id();
+                    Intent intent = new Intent(Activity_Partner.this, Partner_View.class);
+                    intent.putExtra("ID", id);
+                    startActivity(intent);
+                }
+            }
+        });
 
         Button b_add = findViewById(R.id.b_add2);
         b_add.setOnClickListener(new View.OnClickListener() {
@@ -58,5 +92,15 @@ public class Activity_Partner extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+    }
+
+    //Refresh the list to show the added partner
+    public void onResume() {
+        super.onResume();
+        partner_list = findViewById(R.id.partner_list);
+        dbp = new DataBasePartner(this);
+        pa = new PartnerAdapter(this, dbp.partnerList());
+        partner_list.setAdapter(pa);
     }
 }

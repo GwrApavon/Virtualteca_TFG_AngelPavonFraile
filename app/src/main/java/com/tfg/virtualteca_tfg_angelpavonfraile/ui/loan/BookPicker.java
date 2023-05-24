@@ -14,7 +14,6 @@ import com.tfg.virtualteca_tfg_angelpavonfraile.DBSettings.DataBaseBook;
 import com.tfg.virtualteca_tfg_angelpavonfraile.R;
 import com.tfg.virtualteca_tfg_angelpavonfraile.adapters.BookAdapter;
 import com.tfg.virtualteca_tfg_angelpavonfraile.elements.Book;
-import com.tfg.virtualteca_tfg_angelpavonfraile.ui.book.Book_View;
 
 import java.util.ArrayList;
 
@@ -43,7 +42,7 @@ public class BookPicker extends AppCompatActivity implements SearchView.OnQueryT
                 if (pos < books.size()) {
                     book = books.get(pos);
                     int id = book.getBook_id();
-                    Intent intent = new Intent(BookPicker.this, Loan_add.class);
+                    Intent intent = new Intent(BookPicker.this, Loan_Add.class);
                     intent.putExtra("BOOK_ID", id);
                     setResult(Activity.RESULT_OK, intent);
                     finish();

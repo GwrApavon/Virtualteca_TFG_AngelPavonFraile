@@ -44,6 +44,8 @@ public class Partner_View extends AppCompatActivity {
             partner_id = (int) savedInstanceState.getSerializable("ID");
         }
 
+        fillTextView(partner_id);
+
         //EDIT PARTNER
         Button b_edit = findViewById(R.id.editButton2);
         b_edit.setOnClickListener(new View.OnClickListener() {
@@ -82,7 +84,8 @@ public class Partner_View extends AppCompatActivity {
             }
         });
     }
-	
+
+    //fills de text fields in the activity
 	public void fillTextView(int partner_id) {
         Partner partner;
         String dni, name, surname1, surname2, phone_number, email;

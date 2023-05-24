@@ -13,12 +13,9 @@ import android.widget.ListView;
 import android.widget.SearchView;
 
 import com.tfg.virtualteca_tfg_angelpavonfraile.DBSettings.DataBaseLoan;
-import com.tfg.virtualteca_tfg_angelpavonfraile.DBSettings.DataBasePartner;
 import com.tfg.virtualteca_tfg_angelpavonfraile.R;
 import com.tfg.virtualteca_tfg_angelpavonfraile.adapters.LoanAdapter;
-import com.tfg.virtualteca_tfg_angelpavonfraile.adapters.PartnerAdapter;
 import com.tfg.virtualteca_tfg_angelpavonfraile.elements.Loan;
-import com.tfg.virtualteca_tfg_angelpavonfraile.elements.Partner;
 import com.tfg.virtualteca_tfg_angelpavonfraile.ui.book.Activity_Book;
 import com.tfg.virtualteca_tfg_angelpavonfraile.ui.partner.Activity_Partner;
 
@@ -73,7 +70,7 @@ public class Activity_Loan extends AppCompatActivity implements SearchView.OnQue
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(Activity_Loan.this, Loan_add.class);
+                Intent intent = new Intent(Activity_Loan.this, Loan_Add.class);
                 startActivity(intent);
             }
         });
@@ -116,6 +113,16 @@ public class Activity_Loan extends AppCompatActivity implements SearchView.OnQue
             }
         });
     }
+
+    //Refresh the list to show the added loan
+    public void onResume() {
+        super.onResume();
+        loan_list = findViewById(R.id.loan_list);
+        dbl = new DataBaseLoan(this);
+        la = new LoanAdapter(this, dbl.loanList());
+        loan_list.setAdapter(la);
+    }
+
 
     @Override
     public boolean onQueryTextSubmit(String s) {

@@ -69,7 +69,7 @@ public class DataBasePartner extends DataBaseSupport {
 			values.put("name", name);
 			values.put("surname1", surname1);
 			values.put("surname2", surname2);
-			values.put("phone_number", phone_num);
+			values.put("phone_num", phone_num);
 			values.put("email", email);
 
 			int numRowsAffected = db.update(TABLE_PARTNERS, values, "id_partner = ?", new String[] { String.valueOf(id) });
@@ -101,7 +101,7 @@ public class DataBasePartner extends DataBaseSupport {
 			values.put("name", name);
 			values.put("surname1", surname1);
 			values.put("surname2", surname2);
-			values.put("phone_number", phone_num);
+			values.put("phone_num", phone_num);
 			values.put("email", email);
 
 			id = db.insert(TABLE_PARTNERS, null, values);
