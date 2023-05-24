@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.SearchView;
 
 import com.tfg.virtualteca_tfg_angelpavonfraile.DBSettings.DataBaseBook;
 import com.tfg.virtualteca_tfg_angelpavonfraile.DBSettings.DataBasePartner;
@@ -20,8 +21,9 @@ import com.tfg.virtualteca_tfg_angelpavonfraile.ui.partner.Activity_Partner;
 
 import java.util.ArrayList;
 
-public class Activity_Book extends AppCompatActivity {
+public class Activity_Book extends AppCompatActivity implements SearchView.OnQueryTextListener{
 
+    SearchView bookBrowser;
     ListView book_list;
     DataBaseBook dbb;
     BookAdapter ba;
@@ -29,6 +31,9 @@ public class Activity_Book extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book);
+
+        bookBrowser = findViewById(R.id.bookBrowser);
+        bookBrowser.setOnQueryTextListener(this);
 
         //Moving buttons
         Button b_loan = findViewById(R.id.loan_button);
@@ -97,5 +102,16 @@ public class Activity_Book extends AppCompatActivity {
         dbb = new DataBaseBook(this);
         ba = new BookAdapter(this, dbb.bookList());
         book_list.setAdapter(ba);
+    }
+
+    @Override
+    public boolean onQueryTextSubmit(String s) {
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String s) {
+        ba.filter(s);
+        return false;
     }
 }

@@ -19,6 +19,7 @@ import java.util.ArrayList;
 
 public class BookPicker extends AppCompatActivity implements SearchView.OnQueryTextListener{
 
+    SearchView bookPickerBrowser;
     ListView book_list;
     DataBaseBook dbb;
     BookAdapter ba;
@@ -29,6 +30,8 @@ public class BookPicker extends AppCompatActivity implements SearchView.OnQueryT
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_picker);
 
+        bookPickerBrowser = findViewById(R.id.bookPickerBrowser);
+        bookPickerBrowser.setOnQueryTextListener(this);
 
         book_list = findViewById(R.id.book_list);
         dbb = new DataBaseBook(this);

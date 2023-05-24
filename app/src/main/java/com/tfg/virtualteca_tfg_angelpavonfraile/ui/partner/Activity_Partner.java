@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.SearchView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -24,16 +25,19 @@ import com.tfg.virtualteca_tfg_angelpavonfraile.ui.loan.Activity_Loan;
 
 import java.util.ArrayList;
 
-public class Activity_Partner extends AppCompatActivity {
+public class Activity_Partner extends AppCompatActivity implements SearchView.OnQueryTextListener{
 
     ListView partner_list;
     DataBasePartner dbp;
     PartnerAdapter pa;
+    SearchView partnerBrowser;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_partner);
 
+        partnerBrowser = findViewById(R.id.partnerBrowser);
+        partnerBrowser.setOnQueryTextListener(Activity_Partner.this);
 
         //Moving buttons
         Button b_book = findViewById(R.id.book_button);
@@ -102,5 +106,16 @@ public class Activity_Partner extends AppCompatActivity {
         dbp = new DataBasePartner(this);
         pa = new PartnerAdapter(this, dbp.partnerList());
         partner_list.setAdapter(pa);
+    }
+
+    @Override
+    public boolean onQueryTextSubmit(String s) {
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String s) {
+        pa.filter(s);
+        return false;
     }
 }
