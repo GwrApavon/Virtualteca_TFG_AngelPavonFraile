@@ -43,6 +43,7 @@ public class DataBasePartner extends DataBaseSupport {
 		} catch (Exception ex) {
 			Log.e(TAG, "Error deleting partner", ex);
 		} finally {
+			Log.e(TAG, "Successfully Deleted");
 			db.close();
 		}
 
@@ -77,6 +78,7 @@ public class DataBasePartner extends DataBaseSupport {
 		} catch (Exception ex) {
 			Log.e(TAG, "Error editing partner", ex);
 		} finally {
+			Log.e(TAG, "Successfully Edited");
 			db.close();
 		}
 
@@ -108,6 +110,7 @@ public class DataBasePartner extends DataBaseSupport {
 		} catch (SQLiteException ex) {
 			Log.e(TAG, "Error inserting partner", ex);
 		} finally {
+			Log.e(TAG, "Successfully Inserted");
 			db.close();
 		}
 

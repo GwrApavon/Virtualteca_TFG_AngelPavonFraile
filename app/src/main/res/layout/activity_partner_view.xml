@@ -49,8 +49,8 @@
 
     <TextView
         android:id="@+id/nameTextView"
-        android:layout_width="366dp"
-        android:layout_height="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginStart="22dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="23dp"
@@ -58,7 +58,10 @@
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/Name"
+        android:padding="10dp"
         android:textColorHint="#8D6E63"
+        android:textSize="20sp"
+        android:textStyle="normal"
         app:layout_constraintBottom_toTopOf="@+id/surname1TextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -66,8 +69,8 @@
 
     <TextView
         android:id="@+id/surname1TextView"
-        android:layout_width="366dp"
-        android:layout_height="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginStart="22dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="23dp"
@@ -75,16 +78,19 @@
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/First_Surname"
+        android:padding="10dp"
         app:layout_constraintBottom_toTopOf="@+id/surname2TextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nameTextView"
-        tools:ignore="TextContrastCheck" />
+        tools:ignore="TextContrastCheck"
+        android:textSize="20sp"
+        android:textStyle="normal"/>
 
     <TextView
         android:id="@+id/surname2TextView"
-        android:layout_width="366dp"
-        android:layout_height="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginStart="22dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="23dp"
@@ -92,16 +98,19 @@
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/Second_Surname"
+        android:padding="10dp"
         app:layout_constraintBottom_toTopOf="@+id/dniTextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/surname1TextView"
-        tools:ignore="TextContrastCheck" />
+        tools:ignore="TextContrastCheck"
+        android:textSize="20sp"
+        android:textStyle="normal"/>
 
     <TextView
         android:id="@+id/dniTextView"
-        android:layout_width="366dp"
-        android:layout_height="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginStart="22dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="23dp"
@@ -109,17 +118,20 @@
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/DNI"
-        android:maxLength="8"
+        android:padding="10dp"
+        android:maxLength="9"
         android:textColorHint="#8D6E63"
         app:layout_constraintBottom_toTopOf="@+id/phoneNumTextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/surname2TextView" />
+        app:layout_constraintTop_toBottomOf="@+id/surname2TextView"
+        android:textSize="20sp"
+        android:textStyle="normal"/>
 
     <TextView
         android:id="@+id/phoneNumTextView"
-        android:layout_width="366dp"
-        android:layout_height="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginStart="22dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="23dp"
@@ -127,16 +139,19 @@
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/Phone_Number"
+        android:padding="10dp"
         android:textColorHint="#8D6E63"
         app:layout_constraintBottom_toTopOf="@+id/emailTextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dniTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/dniTextView"
+        android:textSize="20sp"
+        android:textStyle="normal"/>
 
     <TextView
         android:id="@+id/emailTextView"
-        android:layout_width="366dp"
-        android:layout_height="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginStart="22dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="23dp"
@@ -144,10 +159,13 @@
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/Email"
+        android:padding="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/phoneNumTextView"
-        tools:ignore="TextContrastCheck" />
+        tools:ignore="TextContrastCheck"
+        android:textSize="20sp"
+        android:textStyle="normal"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

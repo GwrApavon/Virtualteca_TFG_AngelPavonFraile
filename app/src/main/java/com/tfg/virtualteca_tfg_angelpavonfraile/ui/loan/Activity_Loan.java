@@ -106,9 +106,8 @@ public class Activity_Loan extends AppCompatActivity implements SearchView.OnQue
                     loan = loans.get(pos);
                     int id = loan.getLoan_id();
                     Intent intent = new Intent(Activity_Loan.this, Loan_View.class);
-                    intent.putExtra("LOAN_ID", id);
-                    setResult(Activity.RESULT_OK, intent);
-                    finish();
+                    intent.putExtra("ID", id);
+                    startActivity(intent);
                 }
             }
         });

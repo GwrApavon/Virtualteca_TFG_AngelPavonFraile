@@ -23,6 +23,7 @@ import com.tfg.virtualteca_tfg_angelpavonfraile.elements.Partner;
 
 public class Loan_Edit extends AppCompatActivity {
 
+    int loan_id;
     int partner_id;
     int book_id;
     String init_date,fin_date;
@@ -35,7 +36,7 @@ public class Loan_Edit extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loan_edit);
 
-        int loan_id;
+
         if(savedInstanceState == null){
             Bundle extras = getIntent().getExtras();
             if(extras == null)
@@ -129,6 +130,12 @@ public class Loan_Edit extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    //refresh loan fields
+    public void onResume() {
+        super.onResume();
+        fillTextView(loan_id);
     }
 
     //fills de text fields in the activity

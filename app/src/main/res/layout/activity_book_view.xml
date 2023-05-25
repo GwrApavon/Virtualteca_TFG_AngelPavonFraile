@@ -62,7 +62,9 @@
         app:layout_constraintBottom_toTopOf="@+id/isbnTextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:textSize="20sp"
+        android:textStyle="normal"/>
 
     <TextView
         android:id="@+id/isbnTextView"
@@ -79,7 +81,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleTextView"
-        tools:ignore="TextContrastCheck" />
+        tools:ignore="TextContrastCheck"
+        android:textSize="20sp"
+        android:textStyle="normal"/>
 
     <TextView
         android:id="@+id/authorTextView"
@@ -97,7 +101,9 @@
         app:layout_constraintBottom_toTopOf="@+id/languageTextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/isbnTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/isbnTextView"
+        android:textSize="20sp"
+        android:textStyle="normal"/>
 
     <TextView
         android:id="@+id/languageTextView"
@@ -114,7 +120,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/authorTextView"
-        tools:ignore="TextContrastCheck" />
+        tools:ignore="TextContrastCheck"
+        android:textSize="20sp"
+        android:textStyle="normal"/>
 
     <TextView
         android:id="@+id/genreTextView"
@@ -131,7 +139,9 @@
         app:layout_constraintBottom_toTopOf="@+id/editorialTextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/languageTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/languageTextView"
+        android:textSize="20sp"
+        android:textStyle="normal"/>
 
     <TextView
         android:id="@+id/editorialTextView"
@@ -148,7 +158,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/genreTextView"
-        tools:ignore="TextContrastCheck" />
+        tools:ignore="TextContrastCheck"
+        android:textSize="20sp"
+        android:textStyle="normal"/>
 
     <TextView
         android:id="@+id/pbl_dateTextView"
@@ -165,7 +177,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editorialTextView"
-        tools:ignore="TextContrastCheck" />
+        tools:ignore="TextContrastCheck"
+        android:textSize="20sp"
+        android:textStyle="normal"/>
 
     <TextView
         android:id="@+id/synopsisTextView"
@@ -182,5 +196,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pbl_dateTextView"
-        tools:ignore="UnknownIdInLayout" />
+        tools:ignore="UnknownIdInLayout"
+        android:textSize="20sp"
+        android:textStyle="normal"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

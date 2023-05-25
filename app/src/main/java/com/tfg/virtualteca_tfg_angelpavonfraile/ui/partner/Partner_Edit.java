@@ -8,8 +8,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.tfg.virtualteca_tfg_angelpavonfraile.DBSettings.DataBaseBook;
 import com.tfg.virtualteca_tfg_angelpavonfraile.DBSettings.DataBasePartner;
 import com.tfg.virtualteca_tfg_angelpavonfraile.R;
+import com.tfg.virtualteca_tfg_angelpavonfraile.adapters.BookAdapter;
 import com.tfg.virtualteca_tfg_angelpavonfraile.elements.Partner;
 
 public class Partner_Edit extends AppCompatActivity {
@@ -64,7 +66,7 @@ public class Partner_Edit extends AppCompatActivity {
                 phone_number = phone_number_text.getText().toString();
                 email = email_text.getText().toString();
 				
-				if (checkEmpty()) {
+				if (!isEmpty()) {
                     result = dbp.editPartner(partner_id, dni, name, surname1, surname2, phone_number, email);
 
                     if(result){
@@ -82,9 +84,15 @@ public class Partner_Edit extends AppCompatActivity {
         });
     }
 	/* CHECKS IF THE FIELDS ARE EMPTY */
-	private boolean checkEmpty(){
-        return !dni.equals("") && name.equals("") && surname1.equals("") && surname2.equals("")
+	private boolean isEmpty(){
+        return dni.equals("") && name.equals("") && surname1.equals("") && surname2.equals("")
                 && phone_number.equals("") && email.equals("");
+    }
+
+    //refresh partner fields
+    public void onResume() {
+        super.onResume();
+        fillTextView(partner_id);
     }
 
     //fills de text fields in the activity

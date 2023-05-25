@@ -78,7 +78,7 @@
             tools:ignore="VisualLintButtonSize" />
     </LinearLayout>
 
-    <EditText
+    <TextView
         android:id="@+id/init_dateTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -96,7 +96,7 @@
         app:layout_constraintTop_toBottomOf="@+id/partnerPickerLayoutView"
         tools:ignore="VisualLintTextFieldSize" />
 
-    <EditText
+    <TextView
         android:id="@+id/fin_dateTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

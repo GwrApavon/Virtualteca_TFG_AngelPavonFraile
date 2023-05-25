@@ -1,11 +1,14 @@
 package com.tfg.virtualteca_tfg_angelpavonfraile.ui.loan;
 
+import static android.content.ContentValues.TAG;
+
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -23,12 +26,12 @@ import com.tfg.virtualteca_tfg_angelpavonfraile.ui.partner.Partner_View;
 public class Loan_View extends AppCompatActivity {
 
     TextView bookPickerTextView, partnerPickerTextView , init_dateTextView, fin_dateTextView;
+    int loan_id;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loan_view);
 
-        int loan_id;
         if(savedInstanceState == null){
             Bundle extras = getIntent().getExtras();
             if(extras == null)
@@ -44,7 +47,7 @@ public class Loan_View extends AppCompatActivity {
         {
             loan_id = (int) savedInstanceState.getSerializable("ID");
         }
-
+        Log.e(TAG, "loan id:" + loan_id);
         fillTextView(loan_id);
 
         //EDIT PARTNER
@@ -53,9 +56,9 @@ public class Loan_View extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-              //  Intent intent = new Intent(Loan_View.this, Loan_Edit.class);
-              //  intent.putExtra("ID", loan_id);
-              //  startActivity(intent);
+                Intent intent = new Intent(Loan_View.this, Loan_Edit.class);
+                intent.putExtra("ID", loan_id);
+                startActivity(intent);
             }
         });
 

@@ -26,7 +26,7 @@ public class LoanAdapter extends BaseAdapter {
     Context context;
     ArrayList<Loan> loans;
     ArrayList<Loan> loansOriginal;
-
+    TextView returnedText;
 
     public LoanAdapter(Context context, ArrayList<Loan> loans) {
         this.context = context;
@@ -57,7 +57,7 @@ public class LoanAdapter extends BaseAdapter {
         View element = shown.inflate(R.layout.loan, viewGroup, false);
         DataBaseBook dbb = new DataBaseBook(context);
         DataBasePartner dbp = new DataBasePartner(context);
-        
+
         Book book = dbb.getBookById(loans.get(i).getBook_id());
         Partner partner = dbp.getPartnerById(loans.get(i).getPartner_id());
 
@@ -77,14 +77,31 @@ public class LoanAdapter extends BaseAdapter {
         CheckBox returned = element.findViewById(R.id.returned);
         returned.setChecked(loans.get(i).getReturned());
 
-        returned.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        returned.setFocusable(false);
+        returnedText = element.findViewById(R.id.returnedText);
+        if(returned.isChecked()){
+            returnedText.setText("Devuelto");
+        }
+        else{
+            returnedText.setText("No devuelto");
+        }
+        returned.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+            public void onClick(View view) {
                 DataBaseLoan dbl = new DataBaseLoan(context);
                 int loan_id = loans.get(i).getLoan_id();
                 dbl.editLoan(loan_id, returned.isChecked());
-            }
+
+                returnedText = element.findViewById(R.id.returnedText);
+                if(returned.isChecked()){
+                    returnedText.setText("Devuelto");
+                }
+                else{
+                    returnedText.setText("No devuelto");
+                }
+           }
         });
+
 
         return element;
     }
@@ -114,4 +131,5 @@ public class LoanAdapter extends BaseAdapter {
 
         notifyDataSetChanged();
     }
+
 }

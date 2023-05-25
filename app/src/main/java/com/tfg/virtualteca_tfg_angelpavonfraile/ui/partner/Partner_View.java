@@ -102,17 +102,17 @@ public class Partner_View extends AppCompatActivity {
         partner = dbp.getPartnerById(partner_id);
 
         if (partner != null) {
-            dni = partner.getDni();
+            dni = "DNI: " + partner.getDni();
             dni_text.setText(dni);
-            name = partner.getName();
+            name = "NOMBRE: " + partner.getName();
             name_text.setText(name);
-            surname1 = partner.getSurname1();
+            surname1 = "PRIMER APELLIDO: " + partner.getSurname1();
             surname1_text.setText(surname1);
-            surname2 = partner.getSurname2();
+            surname2 = "SEGUNDO APELLIDO: " + partner.getSurname2();
             surname2_text.setText(surname2);
-            phone_number = partner.getPhone_number();
+            phone_number ="TELEFONO: " +partner.getPhone_number();
             phone_number_text.setText(phone_number);
-            email = partner.getEmail();
+            email = "EMAIL: " +partner.getEmail();
             email_text.setText(email);
         }
     }

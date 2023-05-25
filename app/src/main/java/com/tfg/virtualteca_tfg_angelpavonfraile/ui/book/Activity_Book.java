@@ -102,6 +102,7 @@ public class Activity_Book extends AppCompatActivity implements SearchView.OnQue
         dbb = new DataBaseBook(this);
         ba = new BookAdapter(this, dbb.bookList());
         book_list.setAdapter(ba);
+
     }
 
     @Override

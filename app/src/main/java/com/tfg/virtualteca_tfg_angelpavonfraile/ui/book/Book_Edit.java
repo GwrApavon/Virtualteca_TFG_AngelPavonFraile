@@ -45,6 +45,7 @@ public class Book_Edit extends AppCompatActivity {
             book_id = (int) savedInstanceState.getSerializable("ID");
         }
 
+        /* ASSIGN VIEWS TO VARIABLES */
         title_text = findViewById(R.id.titleTextEdit);
         ISBN_text = findViewById(R.id.isbnTextEdit);
         author_text = findViewById(R.id.authorTextEdit);
@@ -54,6 +55,7 @@ public class Book_Edit extends AppCompatActivity {
         pbl_date_text = findViewById(R.id.pbl_dateTextEdit);
         synopsis_text = findViewById(R.id.synopsisTextEdit);
 
+        /* fill fields */
         fillTextView(book_id);
 
         /* SAVE CHANGES DB */
@@ -89,11 +91,19 @@ public class Book_Edit extends AppCompatActivity {
         });
     }
 
+    /*check if fields are empty */
     private boolean isEmpty(){
         return title.equals("") && ISBN != 0 && author.equals("") && language.equals("") && genre.equals("")
                 && editorial.equals("") && pbl_date.equals("") && synopsis.equals("");
     }
 
+    /* refresh partner fields */
+    public void onResume() {
+        super.onResume();
+        fillTextView(book_id);
+    }
+
+    /* fills book fields */
     public void fillTextView(int book_id){
         Book book;
         String title, author, language, genre, editorial, pbl_date, synopsis, ISBN;

@@ -104,21 +104,21 @@ public class Book_View extends AppCompatActivity {
         book = dbb.getBookById(book_id);
 
         if (book != null) {
-            title = book.getTitle();
+            title = "TITULO: " +book.getTitle();
             title_text.setText(title);
-            ISBN = book.getISBN() + "";
+            ISBN = "ISBN: " +book.getISBN() + "";
             ISBN_text.setText(ISBN);
-            author = book.getAuthor();
+            author = "AUTOR: " +book.getAuthor();
             author_text.setText(author);
-            language = book.getLanguage();
+            language = "IDIOMA: " +book.getLanguage();
             language_text.setText(language);
-            genre = book.getGenre();
+            genre = "GENERO: " +book.getGenre();
             genre_text.setText(genre);
-            editorial = book.getEditorial();
+            editorial = "EDITORIAL: " + book.getEditorial();
             editorial_text.setText(editorial);
-            pbl_date = book.getPbl_date();
+            pbl_date = "FECHA DE PUBLICACION: " + book.getPbl_date();
             pbl_date_text.setText(pbl_date);
-            synopsis = book.getSynopsis();
+            synopsis = "SINOPSIS: " + book.getSynopsis();
             synopsis_text.setText(synopsis);
         }
 

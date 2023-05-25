@@ -32,11 +32,12 @@ public class DataBaseLoan extends DataBaseSupport {
         boolean result = false;
         SQLiteDatabase db = getWritableDatabase();
         try {
-            int numRowsAffected = db.delete(TABLE_LOANS, "id=?", new String[]{String.valueOf(id)});
+            int numRowsAffected = db.delete(TABLE_LOANS, "id_loan=?", new String[]{String.valueOf(id)});
             result = numRowsAffected > 0;
         } catch (Exception ex) {
             Log.e(TAG, "Error deleting loan", ex);
         } finally {
+            Log.e(TAG, "Successfully Deleted");
             db.close();
         }
         return result;
@@ -59,11 +60,12 @@ public class DataBaseLoan extends DataBaseSupport {
             values.put("init_date", init_date);
             values.put("fin_date", fin_date);
             values.put("returned", returned ? 1 : 0);
-            int numRowsAffected = db.update(TABLE_LOANS, values, "id=?", new String[]{String.valueOf(id)});
+            int numRowsAffected = db.update(TABLE_LOANS, values, "id_loan=?", new String[]{String.valueOf(id)});
             result = numRowsAffected > 0;
         } catch (Exception ex) {
             Log.e(TAG, "Error editing loan", ex);
         } finally {
+            Log.e(TAG, "Successfully Edited");
             db.close();
         }
         return result;
@@ -75,11 +77,12 @@ public class DataBaseLoan extends DataBaseSupport {
         try {
             ContentValues values = new ContentValues();
             values.put("returned", returned ? 1 : 0);
-            int numRowsAffected = db.update(TABLE_LOANS, values, "id=?", new String[]{String.valueOf(id)});
+            int numRowsAffected = db.update(TABLE_LOANS, values, "id_loan=?", new String[]{String.valueOf(id)});
             result = numRowsAffected > 0;
         } catch (Exception ex) {
             Log.e(TAG, "Error editing loan", ex);
         } finally {
+            Log.e(TAG, "Successfully Edited");
             db.close();
         }
         return result;
@@ -106,6 +109,7 @@ public class DataBaseLoan extends DataBaseSupport {
         } catch (SQLiteException ex) {
             Log.e(TAG, "Error inserting loan", ex);
         } finally {
+            Log.e(TAG, "Successfully Inserted");
             db.close();
         }
         return id;
@@ -156,7 +160,7 @@ public class DataBaseLoan extends DataBaseSupport {
         Cursor loanCursor = null;
 
         try {
-            loanCursor = db.rawQuery("SELECT * FROM " + TABLE_LOANS + " WHERE id = ? LIMIT 1", new String[]{String.valueOf(id)});
+            loanCursor = db.rawQuery("SELECT * FROM " + TABLE_LOANS + " WHERE id_loan = ? LIMIT 1", new String[]{String.valueOf(id)});
 
             if (loanCursor.moveToFirst()) {
                 loan = new Loan();
