@@ -26,9 +26,11 @@
             android:layout_weight="1"
             android:gravity="start|center_vertical"
             android:hint="@string/SelectBook"
+            android:padding="10dp"
             android:textAlignment="gravity"
             android:textColorHint="#A1887F"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:textStyle="normal" />
 
         <Button
             android:id="@+id/bookPickerView"
@@ -61,9 +63,11 @@
             android:layout_weight="1"
             android:gravity="start|center_vertical"
             android:hint="@string/SelectPartner"
+            android:padding="10dp"
             android:textAlignment="gravity"
             android:textColorHint="#A1887F"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:textStyle="normal" />
 
         <Button
             android:id="@+id/partnerPickerView"
@@ -87,8 +91,10 @@
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/fecha_de_inicio"
-        android:inputType="date"
         android:minHeight="48dp"
+        android:padding="10dp"
+        android:textSize="20sp"
+        android:textStyle="normal"
         android:textColorHint="#8D6E63"
         app:layout_constraintBottom_toTopOf="@+id/fin_dateTextView"
         app:layout_constraintEnd_toEndOf="parent"
@@ -105,8 +111,10 @@
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/fin_date"
-        android:inputType="date"
         android:minHeight="48dp"
+        android:padding="10dp"
+        android:textSize="20sp"
+        android:textStyle="normal"
         android:textColorHint="#8D6E63"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

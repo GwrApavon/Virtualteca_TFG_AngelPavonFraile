@@ -124,9 +124,9 @@ public class Loan_View extends AppCompatActivity {
                 partnerPickerTextView.setText(full_name);
             }
 
-            String init_date = loan.getInit_date();
+            String init_date = "Fecha de inicio:    " + loan.getInit_date();
             init_dateTextView.setText(init_date);
-            String fin_date = loan.getFin_date();
+            String fin_date = "Fecha de finalización:    " + loan.getFin_date();
             fin_dateTextView.setText(fin_date);
         }
     }
