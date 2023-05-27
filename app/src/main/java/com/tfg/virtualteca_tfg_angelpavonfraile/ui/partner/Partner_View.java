@@ -10,24 +10,22 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.tfg.virtualteca_tfg_angelpavonfraile.DBSettings.DataBaseBook;
 import com.tfg.virtualteca_tfg_angelpavonfraile.DBSettings.DataBasePartner;
 import com.tfg.virtualteca_tfg_angelpavonfraile.R;
 import com.tfg.virtualteca_tfg_angelpavonfraile.elements.Partner;
-import com.tfg.virtualteca_tfg_angelpavonfraile.ui.book.Book_Edit;
-import com.tfg.virtualteca_tfg_angelpavonfraile.ui.book.Book_View;
 
 public class Partner_View extends AppCompatActivity {
 	
 	TextView dni_text, name_text, surname1_text, surname2_text, phone_number_text, email_text;
 
+    int partner_id;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_partner_view);
 
 
-        int partner_id;
+
         if(savedInstanceState == null){
             Bundle extras = getIntent().getExtras();
             if(extras == null)
@@ -92,12 +90,12 @@ public class Partner_View extends AppCompatActivity {
 
         DataBasePartner dbp = new DataBasePartner(Partner_View.this);
 
-        dni_text = findViewById(R.id.dniTextView);
-        name_text = findViewById(R.id.nameTextView);
-        surname1_text = findViewById(R.id.surname1TextView);
-        surname2_text = findViewById(R.id.surname2TextView);
-        phone_number_text = findViewById(R.id.phoneNumTextView);
-        email_text = findViewById(R.id.emailTextView);
+        dni_text = findViewById(R.id.dniTextPreView);
+        name_text = findViewById(R.id.nameTextPreView);
+        surname1_text = findViewById(R.id.surname1TextPreView);
+        surname2_text = findViewById(R.id.surname2TextPreView);
+        phone_number_text = findViewById(R.id.phoneNumTextPreView);
+        email_text = findViewById(R.id.emailTextPreView);
 
         partner = dbp.getPartnerById(partner_id);
 
@@ -116,4 +114,10 @@ public class Partner_View extends AppCompatActivity {
             email_text.setText(email);
         }
     }
+
+    public void onResume() {
+        super.onResume();
+        fillTextView(partner_id);
+    }
+
 }

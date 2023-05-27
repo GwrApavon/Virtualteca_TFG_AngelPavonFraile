@@ -22,13 +22,14 @@ public class Book_View extends AppCompatActivity {
     TextView title_text, ISBN_text, author_text, language_text, genre_text, editorial_text,
             pbl_date_text, synopsis_text;
 
+    int book_id;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_view);
 
 
-        int book_id;
+
         if(savedInstanceState == null){
             Bundle extras = getIntent().getExtras();
             if(extras == null)
@@ -122,5 +123,9 @@ public class Book_View extends AppCompatActivity {
             synopsis_text.setText(synopsis);
         }
 
+    }
+    public void onResume() {
+        super.onResume();
+        fillTextView(book_id);
     }
 }

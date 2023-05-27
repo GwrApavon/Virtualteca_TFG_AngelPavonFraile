@@ -5,48 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/editButton2"
-        style="?attr/materialButtonOutlinedStyle"
-        android:layout_width="77dp"
-        android:layout_height="61dp"
-        android:layout_marginTop="24dp"
-        android:text="@string/Nothing"
-        android:textAlignment="center"
-        app:cornerRadius="20dp"
-        app:icon="@drawable/pen_to_square_solid"
-        app:iconSize="35dp"
-        app:iconTint="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.932"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.974"
-        app:strokeColor="@color/black"
-        tools:ignore="SpeakableTextPresentCheck,TextSizeCheck" />
-
-    <Button
-        android:id="@+id/deleteButton2"
-        style="?attr/materialButtonOutlinedStyle"
-        android:layout_width="77dp"
-        android:layout_height="61dp"
-        android:layout_marginTop="24dp"
-        android:text="@string/Nothing"
-        android:textAlignment="center"
-        app:cornerRadius="20dp"
-        app:icon="@drawable/trash_solid"
-        app:iconSize="35dp"
-        app:iconTint="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.065"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.975"
-        app:strokeColor="@color/black"
-        tools:ignore="SpeakableTextPresentCheck" />
-
     <TextView
         android:id="@+id/nameTextPreView"
         android:layout_width="match_parent"
@@ -155,17 +113,18 @@
         android:layout_marginStart="22dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="23dp"
-        android:layout_marginBottom="150dp"
+        android:layout_marginBottom="110dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/Email"
         android:padding="10dp"
+        android:textSize="20sp"
+        android:textStyle="normal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/phoneNumTextPreView"
-        tools:ignore="TextContrastCheck"
-        android:textSize="20sp"
-        android:textStyle="normal"/>
+        tools:ignore="TextContrastCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

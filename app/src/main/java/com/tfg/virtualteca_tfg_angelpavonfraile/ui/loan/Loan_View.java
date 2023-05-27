@@ -17,6 +17,7 @@ import com.tfg.virtualteca_tfg_angelpavonfraile.DBSettings.DataBaseBook;
 import com.tfg.virtualteca_tfg_angelpavonfraile.DBSettings.DataBaseLoan;
 import com.tfg.virtualteca_tfg_angelpavonfraile.DBSettings.DataBasePartner;
 import com.tfg.virtualteca_tfg_angelpavonfraile.R;
+import com.tfg.virtualteca_tfg_angelpavonfraile.adapters.LoanAdapter;
 import com.tfg.virtualteca_tfg_angelpavonfraile.elements.Book;
 import com.tfg.virtualteca_tfg_angelpavonfraile.elements.Loan;
 import com.tfg.virtualteca_tfg_angelpavonfraile.elements.Partner;
@@ -120,7 +121,7 @@ public class Loan_View extends AppCompatActivity {
             }
 
             if (partner != null){
-                String full_name = partner.getName() + " " + partner.getSurname1() + " " + partner.getSurname2();
+                String full_name = partner.getName() + " " + partner.getSurname1();
                 partnerPickerTextView.setText(full_name);
             }
 
@@ -129,5 +130,10 @@ public class Loan_View extends AppCompatActivity {
             String fin_date = "Fecha de finalización:    " + loan.getFin_date();
             fin_dateTextView.setText(fin_date);
         }
+    }
+
+    public void onResume() {
+        super.onResume();
+        fillTextView(loan_id);
     }
 }

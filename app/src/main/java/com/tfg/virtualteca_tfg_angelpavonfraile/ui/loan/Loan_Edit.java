@@ -152,7 +152,7 @@ public class Loan_Edit extends AppCompatActivity {
         bookPickerTextEdit = findViewById(R.id.bookPickerTextEdit);
         partnerPickerTextEdit = findViewById(R.id.partnerPickerTextEdit);
         init_dateTextEdit = findViewById(R.id.init_dateTextEdit);
-        fin_dateTextEdit = findViewById(R.id.fin_dateTextView);
+        fin_dateTextEdit = findViewById(R.id.fin_dateTextEdit);
 
         loan = dbl.getLoanById(loan_id);
 

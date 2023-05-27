@@ -29,6 +29,7 @@ public class Activity_Loan extends AppCompatActivity implements SearchView.OnQue
     DataBaseLoan dbl;
     LoanAdapter la;
     Loan loan;
+    int option = 1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,20 +76,22 @@ public class Activity_Loan extends AppCompatActivity implements SearchView.OnQue
             }
         });
 
-        b_options = findViewById(R.id.book_button);
-        b_book.setOnClickListener(new View.OnClickListener() {
-            @SuppressLint("SetTextI18n")
+        b_options = findViewById(R.id.swapOption);
+        b_options.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(b_options.getText().equals(getString(R.string.Partners))){
                     b_options.setText(R.string.Books);
+                    option = 2;
                 }
                 else{
                     b_options.setText(R.string.Partners);
+                    option = 1;
                 }
 
             }
         });
+
 
         loanBrowser = findViewById(R.id.loanBrowser);
         loanBrowser.setOnQueryTextListener(this);
@@ -130,11 +133,6 @@ public class Activity_Loan extends AppCompatActivity implements SearchView.OnQue
 
     @Override
     public boolean onQueryTextChange(String s) {
-
-        int option = 1;
-        if (b_options.getText().equals(getString(R.string.Books))){
-            option = 2;
-        }
 
         la.filter(s, option);
         return false;
