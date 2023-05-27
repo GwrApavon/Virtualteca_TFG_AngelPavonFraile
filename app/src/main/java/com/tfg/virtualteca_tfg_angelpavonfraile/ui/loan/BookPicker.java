@@ -1,10 +1,13 @@
 package com.tfg.virtualteca_tfg_angelpavonfraile.ui.loan;
 
+import static android.content.ContentValues.TAG;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -24,12 +27,28 @@ public class BookPicker extends AppCompatActivity implements SearchView.OnQueryT
     DataBaseBook dbb;
     BookAdapter ba;
     Book book;
+    String from;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_picker);
 
+        if(savedInstanceState == null){
+            Bundle extras = getIntent().getExtras();
+            if(extras == null)
+            {
+                from = null;
+            }
+            else
+            {
+                from = extras.getString("FROM");
+            }
+        }
+        else {
+            from = (String) savedInstanceState.getSerializable("FROM");
+        }
+        Log.e(TAG, "FROM:" + from);
         bookPickerBrowser = findViewById(R.id.bookPickerBrowser);
         bookPickerBrowser.setOnQueryTextListener(this);
 
@@ -46,6 +65,9 @@ public class BookPicker extends AppCompatActivity implements SearchView.OnQueryT
                     book = books.get(pos);
                     int id = book.getBook_id();
                     Intent intent = new Intent(BookPicker.this, Loan_Add.class);
+                    if (from.equals("LoanEdit")){
+                        intent = new Intent(BookPicker.this, Loan_Edit.class);
+                    }
                     intent.putExtra("BOOK_ID", id);
                     setResult(Activity.RESULT_OK, intent);
                     finish();

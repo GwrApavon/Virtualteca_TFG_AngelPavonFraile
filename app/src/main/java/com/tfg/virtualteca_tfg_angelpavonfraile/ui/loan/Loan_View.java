@@ -51,7 +51,7 @@ public class Loan_View extends AppCompatActivity {
         Log.e(TAG, "loan id:" + loan_id);
         fillTextView(loan_id);
 
-        //EDIT PARTNER
+        //EDIT Loan
         Button b_edit = findViewById(R.id.editButton3);
         b_edit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,6 +88,33 @@ public class Loan_View extends AppCompatActivity {
                         }).show();
             }
         });
+        //Book Preview
+        Button b_bookPreview = findViewById(R.id.bookPickerView);
+        b_bookPreview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(Loan_View.this, BookPreview.class);
+                Loan loan = getLoanById(loan_id);
+                int book_id = loan.getBook_id();
+                intent.putExtra("ID", book_id);
+                startActivity(intent);
+            }
+        });
+
+        //Partner Preview
+        Button b_partnerPreview = findViewById(R.id.partnerPickerView);
+        b_partnerPreview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(Loan_View.this, PartnerPreview.class);
+                Loan loan = getLoanById(loan_id);
+                int partner_id = loan.getPartner_id();
+                intent.putExtra("ID", partner_id);
+                startActivity(intent);
+            }
+        });
     }
 
     //fills de text fields in the activity
@@ -97,7 +124,6 @@ public class Loan_View extends AppCompatActivity {
         Partner partner;
         Book book;
 
-        DataBaseLoan dbl = new DataBaseLoan(Loan_View.this);
         DataBaseBook dbb = new DataBaseBook(Loan_View.this);
         DataBasePartner dbp = new DataBasePartner(Loan_View.this);
 
@@ -106,7 +132,7 @@ public class Loan_View extends AppCompatActivity {
         init_dateTextView = findViewById(R.id.init_dateTextView);
         fin_dateTextView = findViewById(R.id.fin_dateTextView);
 
-        loan = dbl.getLoanById(loan_id);
+        loan = getLoanById(loan_id);
 
         if (loan != null) {
             int book_id = loan.getBook_id();
@@ -132,6 +158,13 @@ public class Loan_View extends AppCompatActivity {
         }
     }
 
+    //Returns a Loan
+    private Loan getLoanById(int loan_id){
+        DataBaseLoan dbl = new DataBaseLoan(Loan_View.this);
+        Loan loan = dbl.getLoanById(loan_id);
+
+        return loan;
+    }
     public void onResume() {
         super.onResume();
         fillTextView(loan_id);

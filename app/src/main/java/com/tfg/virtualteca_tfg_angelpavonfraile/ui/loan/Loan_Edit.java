@@ -62,9 +62,8 @@ public class Loan_Edit extends AppCompatActivity {
                         Intent data = result.getData();
                         if (data != null) {
                             book_id = data.getIntExtra("BOOK_ID", 0);
-                            DataBaseBook dbb = new DataBaseBook(Loan_Edit.this);
-                            Book book = dbb.getBookById(book_id);
-                            TextView bptv = findViewById(R.id.bookPickerText);
+                            Book book = getBookById(book_id);
+                            TextView bptv = findViewById(R.id.bookPickerTextEdit);
                             bptv.setText(book.getTitle());
                         }
                     }
@@ -77,9 +76,8 @@ public class Loan_Edit extends AppCompatActivity {
                         Intent data = result.getData();
                         if (data != null) {
                             partner_id = data.getIntExtra("PARTNER_ID", 0);
-                            DataBasePartner dbp = new DataBasePartner(Loan_Edit.this);
-                            Partner partner = dbp.getPartnerById(partner_id);
-                            TextView pptv = findViewById(R.id.partnerPickerText);
+                            Partner partner = getPartnerById(partner_id);
+                            TextView pptv = findViewById(R.id.partnerPickerTextEdit);
                             String full_name = partner.getName() + " " + partner.getSurname1() + " " + partner.getSurname2();
                             pptv.setText(full_name);
                         }
@@ -91,6 +89,7 @@ public class Loan_Edit extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Loan_Edit.this, BookPicker.class);
+                intent.putExtra("FROM", "LoanEdit");
                 launcher.launch(intent);
             }
         });
@@ -100,6 +99,7 @@ public class Loan_Edit extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Loan_Edit.this, PartnerPicker.class);
+                intent.putExtra("FROM", "LoanEdit");
                 launcher2.launch(intent);
             }
         });
@@ -138,6 +138,21 @@ public class Loan_Edit extends AppCompatActivity {
         fillTextView(loan_id);
     }
 
+    //Returns the partner
+    private Partner getPartnerById(int partner_id){
+        DataBasePartner dbp = new DataBasePartner(Loan_Edit.this);
+        Partner partner = dbp.getPartnerById(partner_id);
+
+        return partner;
+    }
+
+    //Returns the book
+    private Book getBookById(int book_id){
+        DataBaseBook dbb = new DataBaseBook(Loan_Edit.this);
+        Book book = dbb.getBookById(book_id);
+
+        return book;
+    }
     //fills de text fields in the activity
     public void fillTextView(int loan_id) {
 

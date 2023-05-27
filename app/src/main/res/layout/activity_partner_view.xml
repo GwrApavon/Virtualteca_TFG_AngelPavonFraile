@@ -48,7 +48,7 @@
         tools:ignore="SpeakableTextPresentCheck" />
 
     <TextView
-        android:id="@+id/nameTextPreView"
+        android:id="@+id/nameTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="22dp"
@@ -62,13 +62,13 @@
         android:textColorHint="#8D6E63"
         android:textSize="20sp"
         android:textStyle="normal"
-        app:layout_constraintBottom_toTopOf="@+id/surname1TextPreView"
+        app:layout_constraintBottom_toTopOf="@+id/surname1TextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/surname1TextPreView"
+        android:id="@+id/surname1TextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="22dp"
@@ -79,16 +79,16 @@
         android:ems="10"
         android:hint="@string/First_Surname"
         android:padding="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/surname2TextPreView"
+        app:layout_constraintBottom_toTopOf="@+id/surname2TextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nameTextPreView"
+        app:layout_constraintTop_toBottomOf="@+id/nameTextView"
         tools:ignore="TextContrastCheck"
         android:textSize="20sp"
         android:textStyle="normal"/>
 
     <TextView
-        android:id="@+id/surname2TextPreView"
+        android:id="@+id/surname2TextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="22dp"
@@ -99,16 +99,16 @@
         android:ems="10"
         android:hint="@string/Second_Surname"
         android:padding="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/dniTextPreView"
+        app:layout_constraintBottom_toTopOf="@+id/dniTextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/surname1TextPreView"
+        app:layout_constraintTop_toBottomOf="@+id/surname1TextView"
         tools:ignore="TextContrastCheck"
         android:textSize="20sp"
         android:textStyle="normal"/>
 
     <TextView
-        android:id="@+id/dniTextPreView"
+        android:id="@+id/dniTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="22dp"
@@ -121,15 +121,15 @@
         android:padding="10dp"
         android:maxLength="9"
         android:textColorHint="#8D6E63"
-        app:layout_constraintBottom_toTopOf="@+id/phoneNumTextPreView"
+        app:layout_constraintBottom_toTopOf="@+id/phoneNumTextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/surname2TextPreView"
+        app:layout_constraintTop_toBottomOf="@+id/surname2TextView"
         android:textSize="20sp"
         android:textStyle="normal"/>
 
     <TextView
-        android:id="@+id/phoneNumTextPreView"
+        android:id="@+id/phoneNumTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="22dp"
@@ -141,15 +141,15 @@
         android:hint="@string/Phone_Number"
         android:padding="10dp"
         android:textColorHint="#8D6E63"
-        app:layout_constraintBottom_toTopOf="@+id/emailTextPreView"
+        app:layout_constraintBottom_toTopOf="@+id/emailTextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dniTextPreView"
+        app:layout_constraintTop_toBottomOf="@+id/dniTextView"
         android:textSize="20sp"
         android:textStyle="normal"/>
 
     <TextView
-        android:id="@+id/emailTextPreView"
+        android:id="@+id/emailTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="22dp"
@@ -163,7 +163,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/phoneNumTextPreView"
+        app:layout_constraintTop_toBottomOf="@+id/phoneNumTextView"
         tools:ignore="TextContrastCheck"
         android:textSize="20sp"
         android:textStyle="normal"/>

@@ -1,11 +1,14 @@
 package com.tfg.virtualteca_tfg_angelpavonfraile.ui.partner;
 
+import static android.content.ContentValues.TAG;
+
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -42,6 +45,7 @@ public class Partner_View extends AppCompatActivity {
             partner_id = (int) savedInstanceState.getSerializable("ID");
         }
 
+        Log.e(TAG, "partner id:" + partner_id);
         fillTextView(partner_id);
 
         //EDIT PARTNER
@@ -90,12 +94,12 @@ public class Partner_View extends AppCompatActivity {
 
         DataBasePartner dbp = new DataBasePartner(Partner_View.this);
 
-        dni_text = findViewById(R.id.dniTextPreView);
-        name_text = findViewById(R.id.nameTextPreView);
-        surname1_text = findViewById(R.id.surname1TextPreView);
-        surname2_text = findViewById(R.id.surname2TextPreView);
-        phone_number_text = findViewById(R.id.phoneNumTextPreView);
-        email_text = findViewById(R.id.emailTextPreView);
+        dni_text = findViewById(R.id.dniTextView);
+        name_text = findViewById(R.id.nameTextView);
+        surname1_text = findViewById(R.id.surname1TextView);
+        surname2_text = findViewById(R.id.surname2TextView);
+        phone_number_text = findViewById(R.id.phoneNumTextView);
+        email_text = findViewById(R.id.emailTextView);
 
         partner = dbp.getPartnerById(partner_id);
 
@@ -110,7 +114,7 @@ public class Partner_View extends AppCompatActivity {
             surname2_text.setText(surname2);
             phone_number ="Telefono:    " +partner.getPhone_number();
             phone_number_text.setText(phone_number);
-            email = "Email:" +partner.getEmail();
+            email = "Email:\n" +partner.getEmail();
             email_text.setText(email);
         }
     }

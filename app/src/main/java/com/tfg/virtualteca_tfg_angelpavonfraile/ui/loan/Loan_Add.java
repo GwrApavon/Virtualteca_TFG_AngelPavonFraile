@@ -75,6 +75,7 @@ public class Loan_Add extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Loan_Add.this, BookPicker.class);
+                intent.putExtra("FROM", "LoanAdd");
                 launcher.launch(intent);
             }
         });
@@ -84,6 +85,7 @@ public class Loan_Add extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Loan_Add.this, PartnerPicker.class);
+                intent.putExtra("FROM", "LoanAdd");
                 launcher2.launch(intent);
             }
         });
