@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import com.tfg.virtualteca_tfg_angelpavonfraile.DBSettings.DataBaseBook;
 import com.tfg.virtualteca_tfg_angelpavonfraile.R;
+import com.tfg.virtualteca_tfg_angelpavonfraile.Utilities;
 import com.tfg.virtualteca_tfg_angelpavonfraile.elements.Book;
 
 public class Book_Edit extends AppCompatActivity {
@@ -74,14 +75,18 @@ public class Book_Edit extends AppCompatActivity {
                 pbl_date = pbl_date_text.getText().toString();
                 synopsis = synopsis_text.getText().toString();
                 if (!isEmpty()) {
-                    result =  dbb.editBook(book_id,title, ISBN, author, language, genre, editorial, pbl_date, synopsis);
+                    if(Utilities.validateDateFormat(pbl_date)) {
+                        result = dbb.editBook(book_id, title, ISBN, author, language, genre, editorial, pbl_date, synopsis);
 
-                    if(result){
-                        Toast.makeText(Book_Edit.this, "REGISTRO EDITADO", Toast.LENGTH_SHORT).show();
-                        finish();
+                        if (result) {
+                            Toast.makeText(Book_Edit.this, "REGISTRO EDITADO", Toast.LENGTH_SHORT).show();
+                            finish();
+                        } else {
+                            Toast.makeText(Book_Edit.this, "ERROR AL EDITAR REGISTRO", Toast.LENGTH_SHORT).show();
+                        }
                     }
-                    else {
-                        Toast.makeText(Book_Edit.this, "ERROR AL EDITAR REGISTRO", Toast.LENGTH_SHORT).show();
+                    else{
+                        Toast.makeText(Book_Edit.this, "ERROR CON EL FORMATO DE LA FECHA", Toast.LENGTH_SHORT).show();
                     }
                 }
                 else {

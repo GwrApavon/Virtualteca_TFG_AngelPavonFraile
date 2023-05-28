@@ -71,6 +71,7 @@ public class DataBaseLoan extends DataBaseSupport {
         return result;
     }
 
+    //Edits only if returned
     public boolean editLoan(int id, boolean returned) {
         boolean result = false;
         SQLiteDatabase db = getWritableDatabase();

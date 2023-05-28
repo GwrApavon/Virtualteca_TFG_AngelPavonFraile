@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import com.tfg.virtualteca_tfg_angelpavonfraile.DBSettings.DataBaseBook;
 import com.tfg.virtualteca_tfg_angelpavonfraile.R;
+import com.tfg.virtualteca_tfg_angelpavonfraile.Utilities;
 
 public class Book_Add extends AppCompatActivity {
 
@@ -50,16 +51,20 @@ public class Book_Add extends AppCompatActivity {
                 synopsis = synopsis_text.getText().toString();
 
                 if (!isEmpty()) {
-                    result = dbb.insertBook(title, ISBN, author, language, genre, editorial, pbl_date, synopsis);
+                    if(Utilities.validateDateFormat(pbl_date)) {
+                        result = dbb.insertBook(title, ISBN, author, language, genre, editorial, pbl_date, synopsis);
 
-                    if(result != 0 ){
-                        Toast.makeText(Book_Add.this, "REGISTRO AÑADIDO", Toast.LENGTH_SHORT).show();
+                        if (result != 0) {
+                            Toast.makeText(Book_Add.this, "REGISTRO AÑADIDO", Toast.LENGTH_SHORT).show();
 
+                        } else {
+                            Toast.makeText(Book_Add.this, "ERROR AL AÑADIR REGISTRO", Toast.LENGTH_SHORT).show();
+                        }
+                        finish();
                     }
-                    else {
-                        Toast.makeText(Book_Add.this, "ERROR AL AÑADIR REGISTRO", Toast.LENGTH_SHORT).show();
+                    else{
+                        Toast.makeText(Book_Add.this, "ERROR CON EL FORMATO DE LA FECHA", Toast.LENGTH_SHORT).show();
                     }
-                    finish();
                 }
                 else {
                     Toast.makeText(Book_Add.this, "DEBE RELLENAR TODOS LOS CAMPOS", Toast.LENGTH_SHORT).show();

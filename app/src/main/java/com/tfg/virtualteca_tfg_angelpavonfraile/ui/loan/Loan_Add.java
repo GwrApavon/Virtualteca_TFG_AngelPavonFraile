@@ -17,13 +17,12 @@ import com.tfg.virtualteca_tfg_angelpavonfraile.DBSettings.DataBaseBook;
 import com.tfg.virtualteca_tfg_angelpavonfraile.DBSettings.DataBaseLoan;
 import com.tfg.virtualteca_tfg_angelpavonfraile.DBSettings.DataBasePartner;
 import com.tfg.virtualteca_tfg_angelpavonfraile.R;
+import com.tfg.virtualteca_tfg_angelpavonfraile.Utilities;
 import com.tfg.virtualteca_tfg_angelpavonfraile.elements.Book;
 import com.tfg.virtualteca_tfg_angelpavonfraile.elements.Partner;
 
 public class Loan_Add extends AppCompatActivity {
 
-    private static final int REQUEST_CODE_BOOK_PICKER = 1;
-    private static final int REQUEST_CODE_PARTNER_PICKER = 2;
     private boolean returned = false;
     int id_partner;
     int id_book;
@@ -100,14 +99,23 @@ public class Loan_Add extends AppCompatActivity {
                 fin_date = fin_dateText.getText().toString();
 
                 if (!isEmpty()) {
-                    result = dbl.insertLoan(id_partner, id_book, init_date, fin_date, returned);
+                    if(Utilities.validateDateFormat(init_date)) {
+                        if(Utilities.validateDateFormat(init_date)) {
+                            result = dbl.insertLoan(id_partner, id_book, init_date, fin_date, returned);
 
-                    if(result != 0 ){
-                        Toast.makeText(Loan_Add.this, "REGISTRO AÑADIDO", Toast.LENGTH_SHORT).show();
-                        finish();
+                            if (result != 0) {
+                                Toast.makeText(Loan_Add.this, "REGISTRO AÑADIDO", Toast.LENGTH_SHORT).show();
+                                finish();
+                            } else {
+                                Toast.makeText(Loan_Add.this, "ERROR AL AÑADIR REGISTRO", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                        else{
+                            Toast.makeText(Loan_Add.this, "ERROR CON EL FORMATO DE LA FECHA DE FINALIZACION", Toast.LENGTH_SHORT).show();
+                        }
                     }
-                    else {
-                        Toast.makeText(Loan_Add.this, "ERROR AL AÑADIR REGISTRO", Toast.LENGTH_SHORT).show();
+                    else{
+                        Toast.makeText(Loan_Add.this, "ERROR CON EL FORMATO DE LA FECHA INICIAL", Toast.LENGTH_SHORT).show();
                     }
                 }
                 else {

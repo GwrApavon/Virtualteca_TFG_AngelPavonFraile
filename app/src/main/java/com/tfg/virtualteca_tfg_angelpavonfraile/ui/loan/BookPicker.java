@@ -69,6 +69,7 @@ public class BookPicker extends AppCompatActivity implements SearchView.OnQueryT
                         intent = new Intent(BookPicker.this, Loan_Edit.class);
                     }
                     intent.putExtra("BOOK_ID", id);
+                    Log.e(TAG, "book picker edit:" + id);
                     setResult(Activity.RESULT_OK, intent);
                     finish();
                 }

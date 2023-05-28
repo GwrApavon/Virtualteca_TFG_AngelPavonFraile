@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import com.tfg.virtualteca_tfg_angelpavonfraile.DBSettings.DataBasePartner;
 import com.tfg.virtualteca_tfg_angelpavonfraile.R;
+import com.tfg.virtualteca_tfg_angelpavonfraile.Utilities;
 
 public class Partner_Add extends AppCompatActivity {
 	
@@ -44,15 +45,20 @@ public class Partner_Add extends AppCompatActivity {
                 email = email_text.getText().toString();
 				
 				if (!isEmpty()) {
-                    result = dbp.insertPartner(dni, name, surname1, surname2, phone_number, email);
+                    if (Utilities.validateDni(dni)) {
+                        result = dbp.insertPartner(dni, name, surname1, surname2, phone_number, email);
+                        if(result != 0 ){
+                            Toast.makeText(Partner_Add.this, "REGISTRO AÑADIDO", Toast.LENGTH_SHORT).show();
+                            finish();
+                        }
+                        else {
+                            Toast.makeText(Partner_Add.this, "ERROR AL AÑADIR REGISTRO", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                    else{
+                        Toast.makeText(Partner_Add.this, "EL DNI NO ES VALIDO", Toast.LENGTH_SHORT).show();
+                    }
 
-                    if(result != 0 ){
-                        Toast.makeText(Partner_Add.this, "REGISTRO AÑADIDO", Toast.LENGTH_SHORT).show();
-                        finish();
-                    }
-                    else {
-                        Toast.makeText(Partner_Add.this, "ERROR AL AÑADIR REGISTRO", Toast.LENGTH_SHORT).show();
-                    }
                 }
                 else {
                     Toast.makeText(Partner_Add.this, "DEBE RELLENAR TODOS LOS CAMPOS", Toast.LENGTH_SHORT).show();

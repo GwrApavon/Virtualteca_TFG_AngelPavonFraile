@@ -119,7 +119,6 @@
         android:ems="10"
         android:hint="@string/DNI"
         android:padding="10dp"
-        android:maxLength="9"
         android:textColorHint="#8D6E63"
         app:layout_constraintBottom_toTopOf="@+id/phoneNumTextView"
         app:layout_constraintEnd_toEndOf="parent"

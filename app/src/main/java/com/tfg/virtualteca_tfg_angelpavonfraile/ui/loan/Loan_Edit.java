@@ -1,5 +1,7 @@
 package com.tfg.virtualteca_tfg_angelpavonfraile.ui.loan;
 
+import static android.content.ContentValues.TAG;
+
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
@@ -7,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -26,7 +29,7 @@ public class Loan_Edit extends AppCompatActivity {
     int loan_id;
     int partner_id;
     int book_id;
-    String init_date,fin_date;
+    String init_date,fin_date,title, full_name;
     TextView bookPickerTextEdit, partnerPickerTextEdit ;
     EditText init_dateTextEdit, fin_dateTextEdit;
     private ActivityResultLauncher<Intent> launcher, launcher2;
@@ -53,8 +56,6 @@ public class Loan_Edit extends AppCompatActivity {
             loan_id = (int) savedInstanceState.getSerializable("ID");
         }
 
-        fillTextView(loan_id);
-
         launcher = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),
                 result -> {
@@ -62,9 +63,11 @@ public class Loan_Edit extends AppCompatActivity {
                         Intent data = result.getData();
                         if (data != null) {
                             book_id = data.getIntExtra("BOOK_ID", 0);
+                            Log.e(TAG, "book picker edit:" + book_id);
                             Book book = getBookById(book_id);
                             TextView bptv = findViewById(R.id.bookPickerTextEdit);
-                            bptv.setText(book.getTitle());
+                            title = book.getTitle();
+                            bptv.setText(title);
                         }
                     }
                 });
@@ -78,11 +81,13 @@ public class Loan_Edit extends AppCompatActivity {
                             partner_id = data.getIntExtra("PARTNER_ID", 0);
                             Partner partner = getPartnerById(partner_id);
                             TextView pptv = findViewById(R.id.partnerPickerTextEdit);
-                            String full_name = partner.getName() + " " + partner.getSurname1() + " " + partner.getSurname2();
+                            full_name = partner.getName() + " " + partner.getSurname1() + " " + partner.getSurname2();
                             pptv.setText(full_name);
                         }
                     }
                 });
+
+        fillTextView(loan_id);
 
         Button bookPicker = findViewById(R.id.bookPickerEdit);
         bookPicker.setOnClickListener(new View.OnClickListener() {
@@ -115,7 +120,7 @@ public class Loan_Edit extends AppCompatActivity {
                 fin_date = fin_dateTextEdit.getText().toString();
                 boolean returned = loan.getReturned();
                 if (!isEmpty()) {
-                    result = dbl.editLoan(loan_id, book_id, partner_id, init_date, fin_date, returned);
+                    result = dbl.editLoan(loan_id, partner_id, book_id, init_date, fin_date, returned);
 
                     if(result){
                         Toast.makeText(Loan_Edit.this, "REGISTRO EDITADO", Toast.LENGTH_SHORT).show();
@@ -130,12 +135,6 @@ public class Loan_Edit extends AppCompatActivity {
                 }
             }
         });
-    }
-
-    //refresh loan fields
-    public void onResume() {
-        super.onResume();
-        fillTextView(loan_id);
     }
 
     //Returns the partner
@@ -179,18 +178,18 @@ public class Loan_Edit extends AppCompatActivity {
             partner = dbp.getPartnerById(partner_id);
 
             if (book != null){
-                String title = book.getTitle();
+                title = book.getTitle();
                 bookPickerTextEdit.setText(title);
             }
 
             if (partner != null){
-                String full_name = partner.getName() + " " + partner.getSurname1() + " " + partner.getSurname2();
+                full_name = partner.getName() + " " + partner.getSurname1() + " " + partner.getSurname2();
                 partnerPickerTextEdit.setText(full_name);
             }
 
-            String init_date = loan.getInit_date();
+            init_date = loan.getInit_date();
             init_dateTextEdit.setText(init_date);
-            String fin_date = loan.getFin_date();
+            fin_date = loan.getFin_date();
             fin_dateTextEdit.setText(fin_date);
         }
     }

@@ -7,11 +7,9 @@
 
     <LinearLayout
         android:id="@+id/moving_buttons"
-        android:layout_width="340dp"
+        android:layout_width="match_parent"
         android:layout_height="62dp"
-        android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
         android:layout_marginBottom="673dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -25,7 +23,8 @@
             style="?attr/materialButtonOutlinedStyle"
             android:layout_width="1dp"
             android:layout_height="match_parent"
-            android:layout_marginEnd="20dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="25dp"
             android:layout_weight="1"
             android:contentDescription="@string/Nothing"
             app:icon="@drawable/house_solid"
@@ -38,7 +37,7 @@
             style="?attr/materialButtonOutlinedStyle"
             android:layout_width="0dp"
             android:layout_height="62dp"
-            android:layout_marginEnd="20dp"
+            android:layout_marginEnd="25dp"
             android:layout_weight="1"
             android:contentDescription="@string/Nothing"
             app:icon="@drawable/book_solid"
@@ -51,7 +50,7 @@
             style="?attr/materialButtonOutlinedStyle"
             android:layout_width="0dp"
             android:layout_height="62dp"
-            android:layout_marginEnd="20dp"
+            android:layout_marginEnd="25dp"
             android:layout_weight="1"
             android:contentDescription="@string/Nothing"
             app:icon="@drawable/person_solid"
@@ -64,14 +63,16 @@
             style="?attr/materialButtonOutlinedStyle"
             android:layout_width="0dp"
             android:layout_height="62dp"
-            android:layout_marginEnd="20dp"
+            android:layout_marginEnd="30dp"
             android:layout_weight="1"
             android:contentDescription="@string/Nothing"
+
             app:icon="@drawable/book_open_reader_solid"
             app:iconTint="@color/black"
             app:strokeColor="@color/black"
             tools:ignore="TouchTargetSizeCheck" />
     </LinearLayout>
+
 
     <Button
         android:id="@+id/create_db"

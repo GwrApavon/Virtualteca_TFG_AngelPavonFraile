@@ -11,6 +11,7 @@ import android.widget.Toast;
 import com.tfg.virtualteca_tfg_angelpavonfraile.DBSettings.DataBaseBook;
 import com.tfg.virtualteca_tfg_angelpavonfraile.DBSettings.DataBasePartner;
 import com.tfg.virtualteca_tfg_angelpavonfraile.R;
+import com.tfg.virtualteca_tfg_angelpavonfraile.Utilities;
 import com.tfg.virtualteca_tfg_angelpavonfraile.adapters.BookAdapter;
 import com.tfg.virtualteca_tfg_angelpavonfraile.elements.Partner;
 
@@ -67,14 +68,18 @@ public class Partner_Edit extends AppCompatActivity {
                 email = email_text.getText().toString();
 				
 				if (!isEmpty()) {
-                    result = dbp.editPartner(partner_id, dni, name, surname1, surname2, phone_number, email);
+                    if (Utilities.validateDni(dni)) {
+                        result = dbp.editPartner(partner_id, dni, name, surname1, surname2, phone_number, email);
 
-                    if(result){
-                        Toast.makeText(Partner_Edit.this, "REGISTRO EDITADO", Toast.LENGTH_SHORT).show();
-                        finish();
+                        if (result) {
+                            Toast.makeText(Partner_Edit.this, "REGISTRO EDITADO", Toast.LENGTH_SHORT).show();
+                            finish();
+                        } else {
+                            Toast.makeText(Partner_Edit.this, "ERROR AL EDITAR REGISTRO", Toast.LENGTH_SHORT).show();
+                        }
                     }
-                    else {
-                        Toast.makeText(Partner_Edit.this, "ERROR AL EDITAR REGISTRO", Toast.LENGTH_SHORT).show();
+                    else{
+                        Toast.makeText(Partner_Edit.this, "EL DNI NO ES VALIDO", Toast.LENGTH_SHORT).show();
                     }
                 }
                 else {
