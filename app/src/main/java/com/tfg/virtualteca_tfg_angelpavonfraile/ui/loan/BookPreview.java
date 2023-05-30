@@ -24,6 +24,7 @@ public class BookPreview extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_preview);
 
+        /* RECEIVES ID FROM PREV ACTIVITY */
         if(savedInstanceState == null){
             Bundle extras = getIntent().getExtras();
             if(extras == null)
@@ -41,9 +42,11 @@ public class BookPreview extends AppCompatActivity {
         }
         Log.e(TAG, "book id:" + book_id);
 
+        /* Fill fields */
         fillTextView(book_id);
     }
 
+    /* Fill fields*/
     public void fillTextView(int book_id){
         Book book;
         String title, author, language, genre, editorial, pbl_date, synopsis, ISBN;
