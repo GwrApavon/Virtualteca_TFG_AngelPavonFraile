@@ -38,6 +38,7 @@ public class Loan_Add extends AppCompatActivity {
         init_dateText = findViewById(R.id.init_dateText);
         fin_dateText = findViewById(R.id.fin_dateText);
 
+        /* RECEIVES THE RESULT FROM THE ACTIVITY */
         launcher = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),
                 result -> {
@@ -69,6 +70,7 @@ public class Loan_Add extends AppCompatActivity {
                     }
                 });
 
+        /* BOOK SELECTOR */
         Button bookPicker = findViewById(R.id.bookPicker);
         bookPicker.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,6 +81,7 @@ public class Loan_Add extends AppCompatActivity {
             }
         });
 
+        /* PARTNER SELECTOR */
         Button partnerPicker = findViewById(R.id.partnerPicker);
         partnerPicker.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,6 +92,7 @@ public class Loan_Add extends AppCompatActivity {
             }
         });
 
+        /* ADD LOAN */
         Button b_add_loan = findViewById(R.id.saveButton3);
         b_add_loan.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -98,12 +102,12 @@ public class Loan_Add extends AppCompatActivity {
                 init_date = init_dateText.getText().toString();
                 fin_date = fin_dateText.getText().toString();
 
-                if (!isEmpty()) {
-                    if(Utilities.validateDateFormat(init_date)) {
-                        if(Utilities.validateDateFormat(init_date)) {
+                if (!isEmpty()) { //CHECK EMPTY
+                    if(Utilities.validateDateFormat(init_date)) { //CHECK INIT FORMAT
+                        if(Utilities.validateDateFormat(fin_date)) { //CHECK FIN FORMAT
                             result = dbl.insertLoan(id_partner, id_book, init_date, fin_date, returned);
 
-                            if (result != 0) {
+                            if (result != 0) { //Correct insert
                                 Toast.makeText(Loan_Add.this, "REGISTRO AÑADIDO", Toast.LENGTH_SHORT).show();
                                 finish();
                             } else {
