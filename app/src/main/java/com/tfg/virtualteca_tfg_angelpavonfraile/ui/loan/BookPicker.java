@@ -34,6 +34,7 @@ public class BookPicker extends AppCompatActivity implements SearchView.OnQueryT
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_picker);
 
+        /* RECEIVES ID FROM PREV ACTIVITY */
         if(savedInstanceState == null){
             Bundle extras = getIntent().getExtras();
             if(extras == null)
@@ -49,14 +50,18 @@ public class BookPicker extends AppCompatActivity implements SearchView.OnQueryT
             from = (String) savedInstanceState.getSerializable("FROM");
         }
         Log.e(TAG, "FROM:" + from);
+        
+        /* Search bar */
         bookPickerBrowser = findViewById(R.id.bookPickerBrowser);
         bookPickerBrowser.setOnQueryTextListener(this);
 
+        /* List */
         book_list = findViewById(R.id.book_list);
         dbb = new DataBaseBook(this);
         ba = new BookAdapter(this, dbb.bookList());
         book_list.setAdapter(ba);
 
+        /* Item click Listener */
         book_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int pos, long l) {
@@ -65,7 +70,7 @@ public class BookPicker extends AppCompatActivity implements SearchView.OnQueryT
                     book = books.get(pos);
                     int id = book.getBook_id();
                     Intent intent = new Intent(BookPicker.this, Loan_Add.class);
-                    if (from.equals("LoanEdit")){
+                    if (from.equals("LoanEdit")){ //Changes depending on the activity it's called from
                         intent = new Intent(BookPicker.this, Loan_Edit.class);
                     }
                     intent.putExtra("BOOK_ID", id);
