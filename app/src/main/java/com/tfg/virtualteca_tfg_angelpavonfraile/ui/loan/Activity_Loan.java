@@ -66,6 +66,7 @@ public class Activity_Loan extends AppCompatActivity implements SearchView.OnQue
             }
         });
 
+        /* ADD BUTTON */
         Button b_add = findViewById(R.id.b_add3);
         b_add.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,6 +77,7 @@ public class Activity_Loan extends AppCompatActivity implements SearchView.OnQue
             }
         });
 
+        /* Changes search method between books and partners (Default Partner) */
         b_options = findViewById(R.id.swapOption);
         b_options.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,9 +95,11 @@ public class Activity_Loan extends AppCompatActivity implements SearchView.OnQue
         });
 
 
+        /* Search Bar */
         loanBrowser = findViewById(R.id.loanBrowser);
         loanBrowser.setOnQueryTextListener(this);
 
+        /* List */
         loan_list = findViewById(R.id.loan_list);
         dbl = new DataBaseLoan(this);
         la = new LoanAdapter(this, dbl.loanList());
