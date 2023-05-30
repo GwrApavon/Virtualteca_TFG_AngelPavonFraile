@@ -29,7 +29,7 @@ public class Book_View extends AppCompatActivity {
         setContentView(R.layout.activity_book_view);
 
 
-
+        /* Receives the id from the previous activity */
         if(savedInstanceState == null){
             Bundle extras = getIntent().getExtras();
             if(extras == null)
@@ -46,6 +46,7 @@ public class Book_View extends AppCompatActivity {
             book_id = (int) savedInstanceState.getSerializable("ID");
         }
 
+        /* Fill fields */
         fillTextView(book_id);
 
 
@@ -87,6 +88,7 @@ public class Book_View extends AppCompatActivity {
         });
     }
 
+    /* Fills fields */
     public void fillTextView(int book_id){
         Book book;
         String title, author, language, genre, editorial, pbl_date, synopsis, ISBN;
@@ -124,6 +126,7 @@ public class Book_View extends AppCompatActivity {
         }
 
     }
+    /* Refills fields on Activity resume */
     public void onResume() {
         super.onResume();
         fillTextView(book_id);
