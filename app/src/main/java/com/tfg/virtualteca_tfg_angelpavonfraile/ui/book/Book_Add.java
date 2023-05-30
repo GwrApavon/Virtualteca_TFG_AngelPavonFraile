@@ -50,11 +50,11 @@ public class Book_Add extends AppCompatActivity {
                 pbl_date = pbl_date_text.getText().toString();
                 synopsis = synopsis_text.getText().toString();
 
-                if (!isEmpty()) {
-                    if(Utilities.validateDateFormat(pbl_date)) {
+                if (!isEmpty()) { //NOT EMPTY
+                    if(Utilities.validateDateFormat(pbl_date)) { //Correct Format
                         result = dbb.insertBook(title, ISBN, author, language, genre, editorial, pbl_date, synopsis);
 
-                        if (result != 0) {
+                        if (result != 0) { //Correct insert
                             Toast.makeText(Book_Add.this, "REGISTRO AÑADIDO", Toast.LENGTH_SHORT).show();
 
                         } else {
@@ -73,6 +73,7 @@ public class Book_Add extends AppCompatActivity {
         });
     }
 
+    /* Checks if the fields are empty */
     private boolean isEmpty(){
         return title.equals("") && ISBN.equals("") && author.equals("") && language.equals("") && genre.equals("")
                 && editorial.equals("") && pbl_date.equals("") && synopsis.equals("");
