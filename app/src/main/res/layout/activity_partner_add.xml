@@ -105,6 +105,7 @@
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/Phone_Number"
+        android:maxLength="9"
         android:inputType="phone"
         app:layout_constraintBottom_toTopOf="@+id/emailText"
         app:layout_constraintEnd_toEndOf="parent"

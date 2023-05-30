@@ -20,6 +20,7 @@ import com.tfg.virtualteca_tfg_angelpavonfraile.DBSettings.DataBaseBook;
 import com.tfg.virtualteca_tfg_angelpavonfraile.DBSettings.DataBaseLoan;
 import com.tfg.virtualteca_tfg_angelpavonfraile.DBSettings.DataBasePartner;
 import com.tfg.virtualteca_tfg_angelpavonfraile.R;
+import com.tfg.virtualteca_tfg_angelpavonfraile.Utilities;
 import com.tfg.virtualteca_tfg_angelpavonfraile.elements.Book;
 import com.tfg.virtualteca_tfg_angelpavonfraile.elements.Loan;
 import com.tfg.virtualteca_tfg_angelpavonfraile.elements.Partner;
@@ -120,14 +121,22 @@ public class Loan_Edit extends AppCompatActivity {
                 fin_date = fin_dateTextEdit.getText().toString();
                 boolean returned = loan.getReturned();
                 if (!isEmpty()) {
-                    result = dbl.editLoan(loan_id, partner_id, book_id, init_date, fin_date, returned);
+                    if(Utilities.validateDateFormat(init_date)) { //CHECK INIT FORMAT
+                        if(Utilities.validateDateFormat(fin_date)) { //CHECK FIN FORMAT
+                            result = dbl.editLoan(loan_id, partner_id, book_id, init_date, fin_date, returned);
 
-                    if(result){
-                        Toast.makeText(Loan_Edit.this, "REGISTRO EDITADO", Toast.LENGTH_SHORT).show();
-                        finish();
-                    }
-                    else {
-                        Toast.makeText(Loan_Edit.this, "ERROR AL EDITAR REGISTRO", Toast.LENGTH_SHORT).show();
+                            if (result) {
+                                Toast.makeText(Loan_Edit.this, "REGISTRO EDITADO", Toast.LENGTH_SHORT).show();
+                                finish();
+                            } else {
+                                Toast.makeText(Loan_Edit.this, "ERROR AL EDITAR REGISTRO", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                        else{
+                            Toast.makeText(Loan_Edit.this, "ERROR CON EL FORMATO DE LA FECHA DE FINALIZACION", Toast.LENGTH_SHORT).show();
+                        }
+                    }else{
+                        Toast.makeText(Loan_Edit.this, "ERROR CON EL FORMATO DE LA FECHA DE INICIO", Toast.LENGTH_SHORT).show();
                     }
                 }
                 else {

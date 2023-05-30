@@ -195,7 +195,7 @@
         android:layout_marginStart="22dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="23dp"
-        android:layout_marginBottom="80dp"
+        android:layout_marginBottom="90dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/Synopsis"
@@ -203,10 +203,9 @@
         android:textColorHint="#8D6E63"
         android:textSize="20sp"
         android:textStyle="normal"
-        app:layout_constraintBottom_toTopOf="@+id/saveButton"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pbl_dateTextView"
-        tools:ignore="UnknownIdInLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/pbl_dateTextView" />
 </androidx.constraintlayout.widget.ConstraintLayout>

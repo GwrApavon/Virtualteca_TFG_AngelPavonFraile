@@ -20,7 +20,7 @@
         android:textColorHint="#8D6E63"
         android:textSize="20sp"
         android:textStyle="normal"
-        app:layout_constraintBottom_toTopOf="@+id/isbnTextView"
+        app:layout_constraintBottom_toTopOf="@+id/isbnTextPreview"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
