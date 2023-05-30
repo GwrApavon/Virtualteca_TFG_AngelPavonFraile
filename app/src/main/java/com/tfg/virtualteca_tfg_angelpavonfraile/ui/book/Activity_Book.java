@@ -32,6 +32,7 @@ public class Activity_Book extends AppCompatActivity implements SearchView.OnQue
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book);
 
+        //Search bar
         bookBrowser = findViewById(R.id.bookBrowser);
         bookBrowser.setOnQueryTextListener(this);
 
@@ -65,6 +66,7 @@ public class Activity_Book extends AppCompatActivity implements SearchView.OnQue
         });
 
 
+        /* BOOK LIST */
         book_list = findViewById(R.id.book_list);
         dbb = new DataBaseBook(this);
         ba = new BookAdapter(this, dbb.bookList());
@@ -83,7 +85,8 @@ public class Activity_Book extends AppCompatActivity implements SearchView.OnQue
                 }
             }
         });
-
+        
+        /* ADD BUTTON */
         Button b_add = findViewById(R.id.b_add1);
         b_add.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -110,6 +113,7 @@ public class Activity_Book extends AppCompatActivity implements SearchView.OnQue
         return false;
     }
 
+    /* Checks changes in Search Bar */
     @Override
     public boolean onQueryTextChange(String s) {
         ba.filter(s);
