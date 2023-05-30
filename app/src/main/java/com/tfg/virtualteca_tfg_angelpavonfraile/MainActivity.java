@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_page);
 
+        /*Moving buttons*/
         Button b_book = findViewById(R.id.book_button);
         b_book.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,6 +50,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        
+        /* CREATE DB BUTTON*/
         Button b_create_db = findViewById(R.id.create_db);
         b_create_db.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        /* CLEAN DB BUTTON */
         Button b_delete_db = findViewById(R.id.delete_db);
         b_delete_db.setOnClickListener(new View.OnClickListener() {
             @Override
